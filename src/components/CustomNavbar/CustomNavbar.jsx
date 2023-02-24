@@ -10,7 +10,7 @@ import "./CustomNavbar.css"
     return (
       <Navbar bg="dark" variant="dark" expand="md">
         <Container>
-          <Navbar.Brand href="#home">La Hamburguesería</Navbar.Brand>
+          <Navbar.Brand href="#home">Rock n' Burger</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <NavbarCollapse id="responsive-navbar-nav">
             <Nav className="me-auto">
