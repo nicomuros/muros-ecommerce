@@ -1,11 +1,11 @@
 import CustomNavbar from "./components/CustomNavbar/CustomNavbar"
-import Main from "./components/Main/Main";
+import Welcome from "./components/Welcome/Welcome";
 
 function App() {
   return (
     <>
       <CustomNavbar />
-      <Main/>
+      <Welcome />
 
     </>
   )
