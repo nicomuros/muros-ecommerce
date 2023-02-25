@@ -1,5 +1,7 @@
-.navbar-line {
-    border-right: 1px solid white;
-    height: 25px;
-    margin: auto 15px;
-  }
+.navigator{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width:100%;
+}
+
