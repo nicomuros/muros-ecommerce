@@ -1,11 +1,12 @@
 import CustomNavbar from "./components/CustomNavbar/CustomNavbar"
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
+import Main from "./components/Main/Main";
 
 function App() {
   return (
     <>
       <CustomNavbar />
-      <ItemListContainer greeting="Bienvenidos a la hamburgueseria!" />
+      <Main/>
+
     </>
   )
 }

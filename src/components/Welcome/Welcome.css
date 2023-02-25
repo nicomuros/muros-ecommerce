@@ -1,0 +1,8 @@
+.bg-image {
+   margin-top: 10px;
+   background-image: url('./principal.jpg');
+   height: 100vh;
+   background-repeat: no-repeat;
+   background-position: center center;
+
+}

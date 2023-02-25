@@ -1,7 +1,11 @@
 .navigator{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   width:100%;
+}
+
+.nv{
+  position: fixe
 }
 
