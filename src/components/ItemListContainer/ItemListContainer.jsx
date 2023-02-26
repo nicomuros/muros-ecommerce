@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 const ItemListContainer = (props) => {
     return <Container>
     <Row>
-        <Col><h1 class="display-1">{props.greeting}</h1></Col>
+        <Col><h1 className="display-1">{props.greeting}</h1></Col>
     </Row>
 </Container>
 }
