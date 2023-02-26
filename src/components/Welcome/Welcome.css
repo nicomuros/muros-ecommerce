@@ -1,8 +1,18 @@
-.bg-image {
-   margin-top: 10px;
-   background-image: url('./principal.jpg');
-   height: 100vh;
-   background-repeat: no-repeat;
-   background-position: center center;
-
+.bg-img1 {
+  background-image: url("./principal.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+.bg-img2 {
+  background-image: url("./principal2.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+.bg-img3 {
+  background-image: url("./principal3.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
 }
