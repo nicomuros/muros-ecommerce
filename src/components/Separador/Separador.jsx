@@ -6,7 +6,7 @@ import styles from './Separador.module.css'
 const Separador = (props) => {
   return (
     <Container fluid className={`${styles.container}  d-flex align-items-center justify-content-center`}>
-        <h2 className={`${styles.text} py-5 my-5 display-1 fw-bolder`}>{props.text}</h2>
+        <h2 className={`${styles.text} py-5 my-2 display-1 fw-bolder`}>{props.text}</h2>
     </Container>
   )
 }
