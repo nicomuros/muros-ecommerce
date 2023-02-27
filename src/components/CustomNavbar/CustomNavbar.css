@@ -4,14 +4,7 @@
   align-items: center;
   width: 100%;
 }
-.mynav {
-  background: #000;
-  background-image: url(./navbg.png) !important; 
-  background-repeat: repeat;
-  color: #fff;
-  background: #000;
-  z-index: 200;
-}
+
 
 @media (min-width: 576px) {
 }

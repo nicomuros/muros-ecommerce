@@ -10,8 +10,9 @@ function App() {
     <CustomNavbar />
     <Welcome />
     <TextImg />
-    <Separador />
+    <Separador text="ROCK'N BURGER"/>
     <TextImg />
+    <Separador text="SEPARADOR 2"/>
     </>
   )
 }
