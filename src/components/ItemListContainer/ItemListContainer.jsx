@@ -1,10 +1,22 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import { useEffect, useState } from 'react';
+import { products } from "../productsMock";
+import { useEffect, useState } from "react";
+import ItemList from "../ItemList/ItemList";
 
 const ItemListContainer = () => {
-    const [item, setItem] = useState();
-    
-}
-export default ItemListContainer
+  const [items, setItem] = useState();
+
+  useEffect(() => {
+    const promise = new Promise((res) => {
+      res(products);
+    });
+    promise.then((response) => setItem(response)).catch((e) => console.log(e));
+
+  }, []);
+
+  return (
+    <div className="products"  style={{backgroundColor: "#fbbe00"}}>
+      <ItemList items={items} />
+    </div>
+  );
+};
+export default ItemListContainer;

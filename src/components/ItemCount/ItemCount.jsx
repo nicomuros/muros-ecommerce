@@ -25,6 +25,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
       <span className={styles.plus} onClick={handlePlus}>
         <AiOutlinePlus />
       </span>
+      <button className={styles.buttn}onClick={() => onAdd(count)}>Agregar</button>
     </div>
   );
 };
