@@ -10,7 +10,7 @@ const TextImg = () => {
                 <Col lg={8} className="py-lg-0 py-5">
                     <h5>ACERCATE A NUESTRO LOCAL</h5>
                     <h3>AMAMOS LO QUE HACEMOS</h3>
-                    <p py-lg={0}>Descubre nuestra pasión por la comida y vive una experiencia única en nuestra hamburguesería. Nuestro staff experto trabaja con ingredientes frescos y de primera calidad para garantizar el sabor y la calidad de cada plato. ¡Te esperamos!</p>
+                    <p py-lg={0}>Descubre nuestra pasión por la comida y vive una experiencia única en nuestra hamburguesería. Nuestro staff experto trabaja con ingredientes frescos y de primera para garantizar el sabor y la calidad de cada burger. ¡Te esperamos!</p>
                     <Button href="/menu" variant="dark"> <span pr={2}>Reservar una mesa</span> </Button>
                     <ItemCount stock={5} initial={1}/>
                 </Col>
