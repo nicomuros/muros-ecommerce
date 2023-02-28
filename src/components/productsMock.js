@@ -104,33 +104,6 @@ export const products = [
     precio: 2600,
     img: "https://res.cloudinary.com/dna9rrdkj/image/upload/v1677525567/Rock%20n%27%20burger/products/carne/mush_bb7tbe.png",
   },
-
-  {
-    id: "h7",
-    nombre: "La empollada",
-    categoria: "carne",
-    ingredientes: [
-      "200g Carne de res",
-      "Lechuga",
-      "Tomate",
-      "Huevo frito",
-      "Salsa especial",
-    ],
-    descripcion:
-      "Jugosa carne de res con lechuga y tomate frescos, coronados con un huevo frito perfecto.",
-    precio: 2800,
-    img: "https://res.cloudinary.com/dna9rrdkj/image/upload/v1677525753/Rock%20n%27%20burger/products/carne/receta-de-hamburguesa-rellena-de-huevo_f5zqfx.jpg",
-  },
-
-  {
-    id: "f1",
-    nombre: "Papas fritas clásicas",
-    categoria: "fritas",
-    ingredientes: ["Papa", "Aceite vegetal", "Sal"],
-    descripcion: "Las clásicas papas fritas crocantes y deliciosas.",
-    precio: 1000,
-    url: "https://res.cloudinary.com/dna9rrdkj/image/upload/v1677525838/Rock%20n%27%20burger/products/fritas/1597931200119_fksakv.webp",
-  },
   {
     id: "f2",
     nombre: "Papas fritas con queso",

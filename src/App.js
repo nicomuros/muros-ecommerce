@@ -14,7 +14,6 @@ function App() {
     <TextImg />
     <Separador text="ROCK'N BURGER"/>
     <ItemListContainer />
-    <ItemCount stock={5} initial={1}/>
     </>
   )
 }

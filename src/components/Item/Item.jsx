@@ -1,36 +1,23 @@
 import React from "react";
-import { Card, Col, Row } from "react-bootstrap";
-import ItemCount from "../ItemCount/ItemCount";
-
+import { Button, Card, Col, Row } from "react-bootstrap";
+import styles from "./Item.module.css"
 const Item = ({ item }) => {
   const handleAddToCart = (count) => {
     console.log(`Agregados ${count} ${item.title} al carrito`);
   };
 
   return (
-    <Col xs={12} md={6} lg={4} xl={3}style={{
+    <Col md={5} className="mx-auto offset-md-2" style={{
       padding: "20px",
-      margin: "0 400px"
     }}>
-      <Card  style={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",  
-        height: "200px",
-        width: "800px"
-      }}>
+      <Card className={styles.cardstl}>
         <div className="aspect-ratio-square">
-          <Card.Img variant="top" src={item.img}style={{
-        width: "200px",
-        height: "200px"
-      }}/>
+          <Card.Img variant="left" className={styles.imagen} src={item.img} />
         </div>
         <div className="pl-3">
           <Card.Body>
-            <Card.Title>{item.nombre}</Card.Title>
-            <Card.Text>{item.ingredientes}</Card.Text>
-            <Card.Text>${item.precio}</Card.Text>
-            <ItemCount stock={5} initial={1} onAdd={handleAddToCart} />
+            <Card.Title className={styles.titulo}>{item.nombre}</Card.Title>
+            <Card.Text className={styles.titulo}>{item.ingredientes}</Card.Text>
           </Card.Body>
         </div>
       </Card>
