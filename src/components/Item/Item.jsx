@@ -2,9 +2,6 @@ import React from "react";
 import {Card, Col} from "react-bootstrap";
 import styles from "./Item.module.css"
 const Item = ({ item }) => {
-  const handleAddToCart = (count) => {
-    console.log(`Agregados ${count} ${item.title} al carrito`);
-  };
 
   return (
     <Col lg={5} className="mx-auto" style={{
@@ -25,7 +22,7 @@ const Item = ({ item }) => {
         <div className="pl-3">
           <Card.Body>
             <Card.Title className={styles.titulo}>{item.nombre}</Card.Title>
-            <Card.Text className={styles.titulo}>{item.ingredientes}</Card.Text>
+            <Card.Text className={styles.titulo}>{item.descripcion}</Card.Text>
           </Card.Body>
         </div>
       </Card>

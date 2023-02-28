@@ -32,12 +32,7 @@
   }
 
   .num {
-    height: 1.5rem;
-    width: 40px;
-    text-align: center;
-    font-size: 20px;
-    border: none;
-    background-color: #f2f2f2;
+    font-size: 25px;
     border-radius: 4px;
     display: inline-block;
     vertical-align: middle;

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from './ItemCount.module.css'
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
-const ItemCount = ({stock, initial, onAdd}) => {
+const ItemCount = ({stock, initial}) => {
 
   const [count, setCount] = useState(initial)
   const handlePlus = () => {
@@ -21,11 +21,11 @@ const ItemCount = ({stock, initial, onAdd}) => {
       <span className={styles.minus} onClick={handleMinus}>
         <AiOutlineMinus />
       </span>
-      <input className={styles.num} type="text" value={count} />
+      <span className={styles.num}>{count}</span>
       <span className={styles.plus} onClick={handlePlus}>
         <AiOutlinePlus />
       </span>
-      <button className={styles.buttn}onClick={() => onAdd(count)}>Agregar</button>
+      <button className={styles.buttn}>Agregar</button>
     </div>
   );
 };

@@ -18,7 +18,7 @@ export const products = [
 
   {
     id: "h2",
-    nombre: "Doble cheese",
+    nombre: "Doble Cheese",
     categoria: "carne",
     ingredientes: [
       "2x 200g Carne vacuna",
@@ -36,7 +36,7 @@ export const products = [
   },
   {
     id: "h3",
-    nombre: "Pollo crocante",
+    nombre: "La crocante",
     categoria: "carne",
     ingredientes: [
       "Pechuga de pollo frita",
@@ -71,7 +71,7 @@ export const products = [
   },
   {
     id: "h5",
-    nombre: "Cebolla caramelizada",
+    nombre: "Caramelo",
     categoria: "carne",
     ingredientes: [
       "Carne de vacuno",
@@ -106,7 +106,7 @@ export const products = [
   },
   {
     id: "f2",
-    nombre: "Papas fritas con queso",
+    nombre: "Cheese's",
     categoria: "fritas",
     ingredientes: ["Papa", "Aceite vegetal", "Sal", "Queso cheddar"],
     descripcion:
@@ -116,7 +116,7 @@ export const products = [
   },
   {
     id: "f3",
-    nombre: "Papas fritas con ajo y parmesano",
+    nombre: "La inexplicable",
     categoria: "fritas",
     ingredientes: ["Papa", "Aceite vegetal", "Sal", "Ajo", "Queso parmesano"],
     descripcion: "Papas fritas con un toque de ajo y queso parmesano rallado.",
@@ -125,7 +125,7 @@ export const products = [
   },
   {
     id: "f4",
-    nombre: "Papas fritas con bacon y queso",
+    nombre: "Panceteras",
     categoria: "fritas",
     ingredientes: ["Papa", "Aceite vegetal", "Sal", "Bacon", "Queso cheddar"],
     descripcion:
@@ -135,7 +135,7 @@ export const products = [
   },
   {
     id: "f5",
-    nombre: "Papas fritas con chili y queso",
+    nombre: "Las re picantes",
     categoria: "fritas",
     ingredientes: [
       "Papa",
