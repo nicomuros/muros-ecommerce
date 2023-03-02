@@ -22,7 +22,7 @@ const Item = ({ item }) => {
         <div className="pl-3">
           <Card.Body>
             <Card.Title className={styles.titulo}>{item.nombre}</Card.Title>
-            <Card.Text className={styles.titulo}>{item.descripcion}</Card.Text>
+            <Card.Text className={styles.titulo}>{item.ingredientes.join(' - ')}</Card.Text>
           </Card.Body>
         </div>
       </Card>

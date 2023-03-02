@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Col, Container, Row } from 'react-bootstrap'
+import ItemCount from '../ItemCount/ItemCount'
 
 const TextImg = () => {
   return (
