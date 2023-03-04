@@ -6,6 +6,8 @@ import Navbar from "react-bootstrap/Navbar";
 import CartWidget from "../CartWidget/CartWidget";
 import { GiHamburger } from "react-icons/gi";
 import "./CustomNavbar.css";
+import { Link } from "react-router-dom"
+
 //TODO
 /*
     Customizar navbar en casa breakpoint, para eso estaba pensando en buscar que clases representan los breakpoints
@@ -17,7 +19,7 @@ const CustomNavbar = () => {
       bg="dark"
       variant="dark"
       expand="md"
-      className="fixed-top res-xl res-lg res-md res-sm mynav"
+      className="res-xl res-lg res-md res-sm mynav"
     >
       <Container className="d-flex align-items-center">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -34,9 +36,10 @@ const CustomNavbar = () => {
 
         <NavbarCollapse id="responsive-navbar-nav" className="navcol">
           <Nav fill className="navigator">
+          <Link to = "/">
             <Button variant="dark" href="#home">
               Home
-            </Button>
+            </Button></Link>
             <Button variant="dark" href="#action/3.1">
               Menu
             </Button>

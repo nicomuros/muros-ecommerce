@@ -1,9 +1,11 @@
 import React from "react";
 import {Card, Col} from "react-bootstrap";
 import styles from "./Item.module.css"
+import {Link} from "react-router-dom"
 const Item = ({ item }) => {
 
   return (
+    <Link to={`/itemDetail/${item.id}`}>
     <Col lg={5} className="mx-auto" style={{
       padding: "20px",
     }}>
@@ -26,7 +28,7 @@ const Item = ({ item }) => {
           </Card.Body>
         </div>
       </Card>
-    </Col>
+    </Col></Link>
   );
 };
 
