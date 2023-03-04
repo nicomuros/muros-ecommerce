@@ -14,19 +14,19 @@ const ItemList = ( {items=[] } ) => {
       <h1 className={`${styles.titulo} text-center`}>CARNE</h1>
       {
          carneProducts.map((item) => {
-          return <Item key={item.id} item={item} />
+          return <Item key={uuidv4()} item={item} />
          })
       }
       <h1 className={`${styles.titulo} text-center`}>PAPAS FRITAS</h1>
       {
          fritasProducts.map((item) => {
-          return <Item key={item.id} item={item} />
+          return <Item key={uuidv4()} item={item} />
          })
       }
       <h1 className={`${styles.titulo} text-center`}>VEGGIES</h1>
       {
          veggieProducts.map((item) => {
-          return <Item key={item.id} item={item} />
+          return <Item key={uuidv4()} item={item} />
          })
       }
       <ItemCount stock={5} initial={1}/>
