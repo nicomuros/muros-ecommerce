@@ -6,6 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import CartWidget from "../CartWidget/CartWidget";
 import { GiHamburger } from "react-icons/gi";
 import "./CustomNavbar.css";
+import { Link } from "react-router-dom";
 //TODO
 /*
     Customizar navbar en casa breakpoint, para eso estaba pensando en buscar que clases representan los breakpoints
@@ -22,9 +23,14 @@ const CustomNavbar = () => {
       <Container className="d-flex align-items-center">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Brand className="d-md-none">
-          <Button variant="dark" href="#action/3.5">
-            <GiHamburger style={{ fontSize: "2rem" }} className="text-center" />
-          </Button>
+          <Link to="/">
+            <Button variant="dark" href="#action/3.5">
+              <GiHamburger
+                style={{ fontSize: "2rem" }}
+                className="text-center"
+              />
+            </Button>
+          </Link>
         </Navbar.Brand>
         <Nav className="d-md-none">
           <Button variant="dark" href="#cart">
@@ -34,22 +40,26 @@ const CustomNavbar = () => {
 
         <NavbarCollapse id="responsive-navbar-nav" className="navcol">
           <Nav fill className="navigator">
-            <Button variant="dark" href="#home">
-              Home
-            </Button>
+            <Link to="/">
+              <Button variant="dark" href="#home">
+                Home
+              </Button>
+            </Link>
             <Button variant="dark" href="#action/3.1">
               Menu
             </Button>
-            <Button
-              variant="dark"
-              href="#action/3.5"
-              className="d-none d-md-block"
-            >
-              <GiHamburger
-                style={{ fontSize: "2rem" }}
-                className="text-center"
-              />
-            </Button>
+            <Link to="/">
+              <Button
+                variant="dark"
+                href="#action/3.5"
+                className="d-none d-md-block"
+              >
+                <GiHamburger
+                  style={{ fontSize: "2rem" }}
+                  className="text-center"
+                />
+              </Button>
+            </Link>
             <Button variant="dark" href="#action/3.3">
               Contactanos
             </Button>
