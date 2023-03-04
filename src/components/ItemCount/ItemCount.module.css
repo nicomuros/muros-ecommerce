@@ -3,8 +3,6 @@
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    margin-top: 40px;
-    margin-bottom: 40px;
   }
   
   .minus,
@@ -29,10 +27,21 @@
   .plus:hover {
     background-color: #fc4f38;
   }
+  .buttn:hover{
+    background-color: #4fac04;
+  }
 
   .num {
-    height: 1.5rem;
-    width: 40px;
+    font-size: 25px;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    color: #2b2f31;
+  }
+  .buttn {
+    height: 2rem;
+    line-height: 0.5rem;
+    width: 90px;
     text-align: center;
     font-size: 20px;
     border: none;
@@ -41,4 +50,5 @@
     display: inline-block;
     vertical-align: middle;
     color: #2b2f31;
+    transition: background-color 0.2s ease-in-out;
   }

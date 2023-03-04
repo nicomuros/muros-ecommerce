@@ -1,0 +1,11 @@
+.imagen {
+  height: 140px;
+  width: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.titulo{
+  font-size: 15px;
+  padding: 0;
+  margin: 0;
+}

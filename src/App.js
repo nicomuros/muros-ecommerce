@@ -4,6 +4,7 @@ import Welcome from "./components/Welcome/Welcome";
 import TextImg from "./components/TextImg/TextImg";
 import Separador from "./components/Separador/Separador";
 import ItemCount from "./components/ItemCount/ItemCount";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 
 function App() {
   return (
@@ -12,8 +13,7 @@ function App() {
     <Welcome />
     <TextImg />
     <Separador text="ROCK'N BURGER"/>
-    <ItemCount stock={5} initial={1}/>
-    
+    <ItemListContainer />
     </>
   )
 }
