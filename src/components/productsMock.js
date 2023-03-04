@@ -15,6 +15,7 @@ export const products = [
     precio: 2000,
     img: "https://res.cloudinary.com/dna9rrdkj/image/upload/v1677524989/Rock%20n%27%20burger/products/carne/Classic-Chicken-burger_wl4pwv.jpg",
   },
+  
 
   {
     id: "h2",
