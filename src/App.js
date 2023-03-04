@@ -13,6 +13,7 @@ function App() {
     <TextImg />
     <Separador text="ROCK'N BURGER"/>
     <ItemCount stock={5} initial={1}/>
+    
     </>
   )
 }
