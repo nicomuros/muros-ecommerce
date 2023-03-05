@@ -5,7 +5,21 @@ import { v4 as uuidv4 } from "uuid";
 
 const ItemList = ({ items }) => {
   const renderItems = items
-    ? items.reduce((acc, curr) => {
+    ? items
+    /*
+    Se comparan primero las categorías. 
+    Si son iguales, se compara el id de cada elemento, y se retorna el resultado 
+    de la comparación en orden descendente (de mayor a menor). Si las categorías 
+    son diferentes, se ordenan en orden ascendente por categoría, y se crea un 
+    nuevo grupo con la categoría actual.
+    */
+      .sort((a, b) => {
+        if (a.categoria === b.categoria) {
+          return b.id - a.id; // Ordenar por id dentro de la misma categoría
+        }
+        return a.categoria > b.categoria ? 1 : -1; // Ordenar por categoría
+      })
+      .reduce((acc, curr) => {
         if (curr.categoria !== acc[1]) {
           acc = [
             [
