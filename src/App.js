@@ -1,5 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CustomNavbar from "./components/CustomNavbar/CustomNavbar"
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer"
+
 function App() {
   return (
     <>
@@ -7,7 +10,11 @@ function App() {
         <CustomNavbar />
 
         <Routes>
-          <Route />
+          <Route path="/" element={ <ItemListContainer /> }/>
+          <Route path="/category/:categoryName" element={ <ItemListContainer /> }/>
+          <Route path="/item/:id" element={ <ItemDetailContainer /> }/>
+
+          <Route path="*" element={<h1> error 404: Not found </h1>} />
         </Routes>
 
       </BrowserRouter>
