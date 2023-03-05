@@ -29,7 +29,7 @@ const ItemList = ({ items }) => {
     : [];
   console.log(renderItems)
   return (
-    <Container fluid>
+    <Container>
       <Row className="d-flex justify-content-center align-items-center">
         {renderItems[0]}
       </Row>

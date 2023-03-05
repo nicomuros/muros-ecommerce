@@ -4,7 +4,6 @@ import styles from "./Item.module.css"
 const Item = ({ item }) => {
 
   return (
-    
     <Col lg={5} className="mx-auto" style={{
       padding: "20px",
     }}>
