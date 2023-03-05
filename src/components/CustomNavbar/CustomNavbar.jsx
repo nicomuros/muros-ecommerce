@@ -6,6 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import CartWidget from "../CartWidget/CartWidget";
 import { GiHamburger } from "react-icons/gi";
 import "./CustomNavbar.css";
+import { Link } from "react-router-dom";
 //TODO
 /*
     Customizar navbar en casa breakpoint, para eso estaba pensando en buscar que clases representan los breakpoints
@@ -17,45 +18,57 @@ const CustomNavbar = () => {
       bg="dark"
       variant="dark"
       expand="md"
-      className="fixed-top res-xl res-lg res-md res-sm mynav"
+      className="res-xl res-lg res-md res-sm mynav"
     >
       <Container className="d-flex align-items-center">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Brand className="d-md-none">
-          <Button variant="dark" href="#action/3.5">
-            <GiHamburger style={{ fontSize: "2rem" }} className="text-center" />
-          </Button>
+          <Link to="/">
+            <Button variant="dark">
+              <GiHamburger
+                style={{ fontSize: "2rem" }}
+                className="text-center"
+              />
+            </Button>
+          </Link>
         </Navbar.Brand>
         <Nav className="d-md-none">
-          <Button variant="dark" href="#cart">
+          <Button variant="dark">
             <CartWidget />
           </Button>
         </Nav>
 
         <NavbarCollapse id="responsive-navbar-nav" className="navcol">
           <Nav fill className="navigator">
-            <Button variant="dark" href="#home">
-              Home
-            </Button>
-            <Button variant="dark" href="#action/3.1">
-              Menu
-            </Button>
-            <Button
-              variant="dark"
-              href="#action/3.5"
-              className="d-none d-md-block"
-            >
-              <GiHamburger
-                style={{ fontSize: "2rem" }}
-                className="text-center"
-              />
-            </Button>
-            <Button variant="dark" href="#action/3.3">
-              Contactanos
-            </Button>
-            <Button variant="dark" href="#cart" className="d-none d-md-block">
+            <Link to="/">
+              <Button
+                variant="dark"
+                className="d-none d-md-block"
+              >
+                <GiHamburger
+                  style={{ fontSize: "2rem" }}
+                  className="text-center"
+                />
+              </Button>
+            </Link>
+            <Link to="category/carne">
+              <Button variant="dark">
+                Carne
+              </Button>
+            </Link>
+            <Link to="category/veggie">
+              <Button variant="dark">
+                Veggie
+              </Button>
+            </Link>
+            <Link to="category/fritas">
+              <Button variant="dark">
+                Papas
+              </Button>
+            </Link><Link to="cart">
+            <Button variant="dark" className="d-none d-md-block">
               <CartWidget />
-            </Button>
+            </Button></Link>
           </Nav>
         </NavbarCollapse>
       </Container>
