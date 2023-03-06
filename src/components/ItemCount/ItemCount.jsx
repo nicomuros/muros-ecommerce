@@ -2,16 +2,16 @@ import React, { useState } from 'react'
 import styles from './ItemCount.module.css'
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
-const ItemCount = ({stock, initial}) => {
+const ItemCount = ({stock, onAdd}) => {
 
-  const [count, setCount] = useState(initial)
+  const [count, setCount] = useState(1)
   const handlePlus = () => {
     if (count < stock){
       setCount(count + 1);
     }
   }
   const handleMinus = () => {
-    if (count > initial){
+    if (count > 1){
       setCount(count - 1);
     }
   }
@@ -25,7 +25,7 @@ const ItemCount = ({stock, initial}) => {
       <span className={styles.plus} onClick={handlePlus}>
         <AiOutlinePlus />
       </span>
-      <button className={styles.buttn}>Agregar</button>
+      <button className={styles.buttn} onClick={() => onAdd(count)}>Agregar al carrito</button>
     </div>
   );
 };
