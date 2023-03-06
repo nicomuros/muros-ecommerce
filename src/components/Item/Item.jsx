@@ -3,6 +3,7 @@ import { Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styles from "./Item.module.css";
 
+
 const Item = ({ item }) => {
   return (
     <Col lg={6} style={{
