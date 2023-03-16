@@ -12,6 +12,29 @@ const ItemList = ({ items }) => {
     de la comparación en orden descendente (de mayor a menor). Si las categorías 
     son diferentes, se ordenan en orden ascendente por categoría, y se crea un 
     nuevo grupo con la categoría actual.
+
+    1. Se llama al método sort() para ordenar el array de objetos items según la 
+       categoría de cada elemento y su id en orden descendente.
+
+    2. Se llama al método reduce() para agrupar los elementos por categoría y crear 
+       un array de elementos para renderizar en la vista.
+
+    3. El primer parámetro de reduce() es una función que recibe dos argumentos: 
+       acc (acumulador) y curr (elemento actual). acc se inicializa con un array 
+       vacío y el valor null para la categoría.
+
+    4. Se verifica si la categoría del elemento actual es diferente a la categoría 
+    del acumulador (acc[1]).
+
+    5. Si la categoría es diferente, se crea un nuevo grupo de elementos en el acumulador 
+    que incluye un separador y el elemento actual.
+
+    6. Si la categoría es la misma, se agrega el elemento actual al grupo actual en el acumulador.
+
+    7. El método reduce() retorna el acumulador actualizado después de cada iteración.
+    
+    8.Finalmente, el método renderItems retorna un array con los elementos agrupados y ordenados para renderizar en la vista.
+
     */
       .sort((a, b) => {
         if (a.categoria === b.categoria) {
