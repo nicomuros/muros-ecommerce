@@ -1,6 +1,6 @@
 import { products } from "../productsMock";
 import { useEffect, useState } from "react";
-import ItemList from "../ItemList/ItemList";
+import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
@@ -21,7 +21,7 @@ const ItemListContainer = () => {
       })
       .catch((e) => console.log(e));
 
-  }, [categoryName]);
+  }, [categoryName, productosFiltrados]);
 
   return (
     <div className="products"  style={{backgroundColor: "#fbbe00"}}>

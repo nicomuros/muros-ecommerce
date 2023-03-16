@@ -1,4 +1,4 @@
-import Item from "../Item/Item";
+import Item from "./Item";
 import Separador from "../Separador/Separador";
 import { Container, Row } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";

@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import CartWidget from "../CartWidget/CartWidget";
+import CartWidget from "./CartWidget";
 import { GiHamburger } from "react-icons/gi";
 import "./CustomNavbar.css";
 import { Link } from "react-router-dom";
