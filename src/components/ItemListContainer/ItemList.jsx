@@ -5,7 +5,6 @@ import {Categorizador} from "../utils/Categorizador.js"
 import Separador from "./Separador";
 const ItemList = ({ items }) => {
   const renderItems = Categorizador(items)
-  console.log(renderItems)
   return (
     <Container>
       <Row className="d-flex justify-content-center align-items-center">
