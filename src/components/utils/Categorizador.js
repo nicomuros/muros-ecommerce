@@ -29,8 +29,7 @@ export function Categorizador(items) {
           [[], null]
         )
     : [];
-  console.log("es aca -> " + categorizados)
-  return categorizados
+    return categorizados[0]
   
   
   ;
