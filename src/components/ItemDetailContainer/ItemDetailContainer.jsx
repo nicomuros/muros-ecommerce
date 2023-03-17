@@ -1,24 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { products } from "../productsMock";
 import ItemDetail from "./ItemDetail";
-
+import axios from "axios"
 const ItemDetailContainer = () => {
   const { id } = useParams();
   const [producto, setProducto] = useState();
   
   useEffect(() => {
-    const promise = new Promise((res) => {
-      const item = products.find((element) => element.id === id);
-      res(item);
-    });
-    promise
-      .then((res) => {
-        console.log("respuesta: " + res)
-        setProducto(res)
-      })
-      .catch((e) => console.log(e));
-
+    const getData = axios.get(`http://localhost:5000/products/${id}`)
+    getData.then((res) => {
+      setProducto(res.data)
+    }).catch(e => console.log(e))
   }, [id]);
   
 
