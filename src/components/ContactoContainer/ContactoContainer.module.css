@@ -1,0 +1,20 @@
+.container{
+  background-color: rgb(251, 190, 0);
+}
+
+.label{
+  padding-top: 20px;
+  margin-bottom: 0px;
+}
+.buttonContainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 50px 0px;
+}
+.customButton{
+  width: 500px !important;
+}
+.customInput{
+  margin-top: 0px;
+}
