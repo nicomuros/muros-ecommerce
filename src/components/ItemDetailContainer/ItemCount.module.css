@@ -1,6 +1,6 @@
 .number {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     gap: 0.5rem;
   }

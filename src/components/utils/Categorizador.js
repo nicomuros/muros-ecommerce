@@ -1,5 +1,3 @@
-import Separador from "../Separador/Separador";
-import { v4 as uuidv4 } from "uuid";
 export function Categorizador(items) {
   const categorizados = items
     ? items
