@@ -8,12 +8,9 @@ const ItemListContainer = () => {
 
   const  { categoryName } = useParams();
 
-
-  const productosFiltrados = products.filter(item => item.categoria === categoryName)
-
   useEffect(() => {
     const promise = new Promise((res) => {
-      res(categoryName ? productosFiltrados : products);
+      res(categoryName ? products.filter(item => item.categoria === categoryName) : products);
     });
     promise
       .then((res) => {
@@ -21,7 +18,7 @@ const ItemListContainer = () => {
       })
       .catch((e) => console.log(e));
 
-  }, [categoryName, productosFiltrados]);
+  }, [categoryName]);
 
   return (
     <div className="products"  style={{backgroundColor: "#fbbe00"}}>
