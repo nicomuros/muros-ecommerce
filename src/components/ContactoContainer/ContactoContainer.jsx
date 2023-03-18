@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Col, Container, Form, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import CustomButton from "../CustomButton/CustomButton";
 import styles from "./ContactoContainer.module.css";
 import Separador from "../Separador/Separador";
@@ -14,10 +14,7 @@ const ContactoContainer = () => {
   const handleChange = (event) => {
     setUserData({ ...userData, [event.target.name]: event.target.value });
   };
-  const customStyles = {
-    backgroundColor: "rgb(251, 190, 0)",
-    border: "2px solid rgba(111, 111, 111, 0.15)"
-  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (userData.userName.length < 4 || userData.userName.length > 15)
@@ -29,32 +26,72 @@ const ContactoContainer = () => {
     else if (userData.userMessage === "") console.log("no escribió el mensaje");
     else console.log("mensaje enviado");
   };
+
+
   return (
     <Container fluid className={styles.container}>
       <Row className="d-flex justify-content-center">
-        <Col lg={5}>
+        <Col lg={5} md={6}>
           <Separador categoryName="Contactanos" />
-          <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" >
-              <Form.Label className={styles.label}>Ingresa tu nombre:</Form.Label>
-              <Form.Control className={styles.customInput} onChange={handleChange} type="text" placeholder="Pedro Picapiedra... " name="userName" style={customStyles}/>
-            </Form.Group>
-            <Form.Group className="mb-3" >
-              <Form.Label className={styles.label}>Ingresa tu correo:</Form.Label>
-              <Form.Control className={styles.customInput} onChange={handleChange} type="email" placeholder="pPicapiedra@gmail.com " name="userEmail" style={customStyles}/>
-            </Form.Group>
-            <Form.Group className="mb-3" >
-              <Form.Label className={styles.label}>Ingresa tu numero de telefono:</Form.Label>
-              <Form.Control oclassName={styles.customInput} onChange={handleChange} type="number" placeholder="2604515253" name="userPhone" style={customStyles}/>
-            </Form.Group>
-            <Form.Group className="mb-3" >
-              <Form.Label className={styles.label}>¿En que podemos ayudarte?</Form.Label>
-              <Form.Control className={styles.customInput} onChange={handleChange} as="textarea" placeholder="Necesito contrar los servicios para..." name="userMessage" style={customStyles}/>
-            </Form.Group>
-            <div className={styles.buttonContainer}>
-              <CustomButton text="Enviar" type="submit" paddingReceived="0px 100px"/>
+          <form onSubmit={handleSubmit}>
+          <div className={styles.inputContainer}>
+              <label htmlFor="userNameInput">Nombre:</label>
+              <input
+                type="text"
+                className="form-control"
+                id="userNameInput"
+                aria-describedby="nameInput"
+                placeholder="Pedro Picapiedras"
+                name="userName"
+                onChange={handleChange}
+              />
             </div>
-          </Form>
+            <div className={styles.inputContainer}>
+              <label htmlFor="userEmailInput">Correo electrónico:</label>
+              <input
+                type="email"
+                className="form-control"
+                id="userEmailInput"
+                aria-describedby="emailHelp"
+                placeholder="micorreo@gmail.com"
+                name="userEmail"
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className={styles.inputContainer}>
+              <label htmlFor="userPhoneInput">Teléfono:</label>
+              <input
+                type="number"
+                className="form-control"
+                id="userPhoneInput"
+                aria-describedby="numberInput"
+                placeholder="2604..."
+                name="userPhone"
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className={styles.inputContainer}>
+              <label htmlFor="userMessageInput">Mensaje:</label>
+              <textarea
+                className="form-control"
+                id="userMessageInput"
+                aria-describedby="messageInput"
+                placeholder="Buenas tardes, me comunico con ustedes por..."
+                name="userMessage"
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className={styles.buttonContainer}>
+              <CustomButton
+                text="Enviar"
+                type="submit"
+                paddingReceived="0px 100px"
+              />
+            </div>
+          </form>
         </Col>
       </Row>
     </Container>

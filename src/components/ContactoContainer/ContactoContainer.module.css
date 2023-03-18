@@ -2,19 +2,12 @@
   background-color: rgb(251, 190, 0);
 }
 
-.label{
-  padding-top: 20px;
-  margin-bottom: 0px;
+.inputContainer{
+  padding:10px 0px;
 }
+
 .buttonContainer{
-  width: 100%;
+  padding:20px 0px 30px 0px;
   display: flex;
   justify-content: center;
-  margin: 50px 0px;
-}
-.customButton{
-  width: 500px !important;
-}
-.customInput{
-  margin-top: 0px;
 }
