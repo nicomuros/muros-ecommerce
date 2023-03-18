@@ -2,10 +2,9 @@ import Item from "./Item";
 import { Container, Row } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
 import {Categorizador} from "../utils/Categorizador.js"
-import Separador from "./Separador";
+import Separador from "../Separador/Separador";
 const ItemList = ({ items }) => {
   const renderItems = Categorizador(items)
-  console.log(renderItems)
   return (
     <Container>
       <Row className="d-flex justify-content-center align-items-center">

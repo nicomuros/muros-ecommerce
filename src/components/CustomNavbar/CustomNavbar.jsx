@@ -65,10 +65,17 @@ const CustomNavbar = () => {
               <Button variant="dark">
                 Papas
               </Button>
-            </Link><Link to="cart">
-            <Button variant="dark" className="d-none d-md-block">
-              <CartWidget />
-            </Button></Link>
+            </Link>
+            <Link to="contactanos">
+              <Button variant="dark">
+                Contacto
+              </Button>
+            </Link>
+            <Link to="cart">
+              <Button variant="dark" className="d-none d-md-block">
+                <CartWidget />
+              </Button>
+            </Link>
           </Nav>
         </NavbarCollapse>
       </Container>
