@@ -2,12 +2,13 @@ export function Categorizador(items) {
   const categorizados = items
     ? items
 
-        .sort((a, b) => {
-          if (a.categoria === b.categoria) {
-            return b.id - a.id; // Ordenar por id dentro de la misma categoría
+        .sort((currProduct, nextProduct) => {
+          if (currProduct.categoria === nextProduct.categoria) {
+            return nextProduct.id - currProduct.id; // Ordenar por id dentro de la misma categoría
           }
-          return a.categoria > b.categoria ? 1 : -1; // Ordenar por categoría
+          return currProduct.categoria > nextProduct.categoria ? 1 : -1; // Ordenar por categoría
         })
+        //TODO: Clean the reduce code
         .reduce(
           (acc, curr) => {
             if (curr.categoria !== acc[1]) {
