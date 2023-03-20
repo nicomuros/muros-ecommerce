@@ -9,7 +9,7 @@ const ItemList = ({ items }) => {
     <Container>
       <Row className="d-flex justify-content-center align-items-center">
         {renderItems && renderItems.map((elemento) => {
-          if (elemento.type) return <Separador categoryName={elemento.titulo} key={uuidv4()}/>
+          if (elemento.type) return <Separador title={elemento.titulo} key={uuidv4()}/>
           else return <Item item={elemento} key={uuidv4()} />
         })}
       </Row>

@@ -5,15 +5,15 @@ import CustomButton from '../CustomButton/CustomButton';
 
 const ItemCount = ({stock, onAdd}) => {
 
-  const [count, setCount] = useState(1)
+  const [quantity, setQuantity] = useState(1)
   const handlePlus = () => {
-    if (count < stock){
-      setCount(count + 1);
+    if (quantity < stock){
+      setQuantity(quantity + 1);
     }
   }
   const handleMinus = () => {
-    if (count > 1){
-      setCount(count - 1);
+    if (quantity > 1){
+      setQuantity(quantity - 1);
     }
   }
 
@@ -22,11 +22,11 @@ const ItemCount = ({stock, onAdd}) => {
       <span className={styles.minus} onClick={handleMinus}>
         <AiOutlineMinus />
       </span>
-      <span className={styles.num}>{count}</span>
+      <span className={styles.num}>{quantity}</span>
       <span className={styles.plus} onClick={handlePlus}>
         <AiOutlinePlus />
       </span>
-      <div onClick={() => {onAdd(count)}}>
+      <div onClick={() => {onAdd(quantity)}}>
         <CustomButton text="Agregar al carrito" />
       </div>
     </div>

@@ -9,7 +9,7 @@ const Contacto = ({ handleChange, handleSubmit, errorList, isSended }) => {
     <Container fluid className={styles.container}>
       <Row className="d-flex justify-content-center">
         <Col lg={5} md={6}>
-          <Separador categoryName="Contactanos" />
+          <Separador title="Contactanos" />
           <form onSubmit={handleSubmit}>
             <div className={styles.inputContainer}>
               <label htmlFor="userNameInput">Nombre:</label>

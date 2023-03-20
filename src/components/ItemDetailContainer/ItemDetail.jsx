@@ -9,8 +9,8 @@ const ItemDetail = ({producto}) => {
   const {agregarAlCarrito} = useContext(CartContext)
 
 
-  const onAdd = (count) => {
-    agregarAlCarrito(producto)
+  const onAdd = (quantity) => {
+    agregarAlCarrito(producto, quantity)
   };
   return (
     <div className={styles.container}>

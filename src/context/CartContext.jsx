@@ -6,11 +6,36 @@ const CartContextProvider = ( {children} ) => { //este es el componente que prov
 
   const [cartList, setCartList] = useState([]);
   
-  const agregarAlCarrito = (producto) => {
-    //verifico que no esté en el carrito
-    setCartList([...cartList, producto])
+  const agregarAlCarrito = (productoRecibido, quantity) => {
+    
+
+    if (!isInCart(productoRecibido.id)){
+
+      const productoNuevo = {
+        ...productoRecibido,
+        cantidad: quantity
+      }
+      setCartList([...cartList, productoNuevo])
+    } else {
+      setCartList(updateQuantity(productoRecibido.id, quantity))
+    }
+
+    
   }
 
+  const isInCart = (id) => {
+    return cartList.some((producto) => producto.id === id)
+  }
+
+  const updateQuantity = (id, quantity) => {
+    return cartList.map((elemento) => {
+      if (elemento.id === id){
+        elemento.cantidad += quantity;
+        return elemento
+      } else return elemento
+    })
+  }
+  
   const cartContextList = {
     cartList,
     setCartList,
