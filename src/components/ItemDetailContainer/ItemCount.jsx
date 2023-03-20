@@ -26,7 +26,9 @@ const ItemCount = ({stock, onAdd}) => {
       <span className={styles.plus} onClick={handlePlus}>
         <AiOutlinePlus />
       </span>
-      <CustomButton text="Agregar al carrito" />
+      <div onClick={() => {onAdd(count)}}>
+        <CustomButton text="Agregar al carrito" />
+      </div>
     </div>
   );
 };

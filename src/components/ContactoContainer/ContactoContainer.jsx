@@ -50,7 +50,7 @@ const ContactoContainer = () => {
     }
   };
 
-  console.log(errorList);
+  
   return (
     <Contacto handleChange={handleChange} handleSubmit={handleSubmit} isSended={isSended} errorList={errorList} />
   );

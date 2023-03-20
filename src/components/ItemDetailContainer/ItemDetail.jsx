@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './ItemDetail.module.css'
 import { Col, Container, Image, Row } from 'react-bootstrap'
 import ItemCount from './ItemCount'
+import { CartContext } from '../../context/CartContext'
 
 const ItemDetail = ({producto}) => {
-  const onAdd = (cantidad) => {
-    console.log(`se agrego al carrito ${cantidad} productos `);
+
+  const {agregarAlCarrito} = useContext(CartContext)
+
+
+  const onAdd = (count) => {
+    agregarAlCarrito(producto)
   };
   return (
     <div className={styles.container}>
