@@ -1,7 +1,6 @@
 export function Categorizador(items = []) {
   const itemsOrdenados = sortItems(items)
   const itemsTitulados = addTitles(itemsOrdenados)
-  console.log(itemsTitulados)
   return itemsTitulados
 }
   
