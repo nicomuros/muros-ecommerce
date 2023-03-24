@@ -60,6 +60,7 @@ const Cart = ({ cartList, handleMinus, handlePlus, handleDeleteProduct, total, h
                   <CustomButton
                     text={"Borrar carrito"}
                     paddingReceived={"0px 10px"}
+                    colorReceived={"green"}
                   />
                 </div>
               </div>
@@ -68,8 +69,10 @@ const Cart = ({ cartList, handleMinus, handlePlus, handleDeleteProduct, total, h
           </Col>
           </>
         : 
-            <Col>
-              <h3>El carrito está vacio</h3>
+            <Col md={4} style={{
+              marginTop: "100px"
+            }}>
+              <h4><em>El carrito está vacio</em></h4>
             </Col>
         }
       </Row>
