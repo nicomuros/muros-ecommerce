@@ -6,7 +6,7 @@ const CartContextProvider = ( {children} ) => { //este es el componente que prov
 
   const [cartList, setCartList] = useState([]);
   
-  const agregarAlCarrito = (productoRecibido, quantity) => {
+  const addToCart = (productoRecibido, quantity) => {
     
 
     if (!isInCart(productoRecibido.id)){
@@ -79,18 +79,18 @@ const CartContextProvider = ( {children} ) => { //este es el componente que prov
     return total
   }
 
-  const limpiarCarrito = () => {
+  const cleanCart = () => {
     setCartList([])
   }
   const cartContextList = {
     cartList,
     setCartList,
-    agregarAlCarrito,
+    addToCart,
     decreaseProductQuantity,
     increaseProductQuantity,
     deleteProduct,
     getCartTotalAmount,
-    limpiarCarrito,
+    cleanCart,
     getCartTotalQuantity
   }
 

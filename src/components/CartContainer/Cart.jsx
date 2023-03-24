@@ -5,7 +5,7 @@ import CustomButton from "../CustomButton/CustomButton";
 import styles from "./Cart.module.css";
 
 
-const Cart = ({ cartList, handleMinus, handlePlus, handleDeleteProduct, totalAmount,totalQuantity , handleBorrarCarrito }) => {
+const Cart = ({ cartList, handleMinus, handlePlus, handleDeleteProduct, totalAmount,totalQuantity , handleCleanCart }) => {
   return (
     <Container fluid className={styles.container}>
       <Row className={`d-flex justify-content-center`}>
@@ -57,7 +57,7 @@ const Cart = ({ cartList, handleMinus, handlePlus, handleDeleteProduct, totalAmo
               <h3>Total: ${totalAmount}</h3>
               <div className={styles.cartButtons}>
                 <CustomButton text={"Pagar"} paddingReceived={"0px 10px"} />
-                <div onClick={handleBorrarCarrito}>
+                <div onClick={handleCleanCart}>
                   <CustomButton
                     text={"Borrar carrito"}
                     paddingReceived={"0px 10px"}

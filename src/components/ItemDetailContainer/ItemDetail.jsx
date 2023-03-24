@@ -6,11 +6,11 @@ import { CartContext } from '../../context/CartContext'
 
 const ItemDetail = ({producto}) => {
 
-  const {agregarAlCarrito} = useContext(CartContext)
+  const {addToCart} = useContext(CartContext)
 
 
   const onAdd = (quantity) => {
-    agregarAlCarrito(producto, quantity)
+    addToCart(producto, quantity)
   };
   return (
     <div className={styles.container}>
