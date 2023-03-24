@@ -6,25 +6,19 @@ const CartContextProvider = ( {children} ) => { //este es el componente que prov
 
   const [cartList, setCartList] = useState([]);
   
-  const addToCart = (productoRecibido, quantity) => {
-    
-
-    if (!isInCart(productoRecibido.id)){
-
-      const productoNuevo = {
-        ...productoRecibido,
-        cantidad: quantity
-      }
-      setCartList([...cartList, productoNuevo])
+  const addToCart = (productWithQuantity) => {
+    if (isInCart(productWithQuantity.id)){
+      const productIndex =  cartList.findIndex(product => product.id === productWithQuantity.id);
+      const updatedCartList = [...cartList]
+      updatedCartList[productIndex] = productWithQuantity
+      setCartList(updatedCartList)
     } else {
-      setCartList(updateQuantity(productoRecibido.id, quantity))
+      setCartList([...cartList, productWithQuantity])
     }
-
-    
   }
 
   const isInCart = (id) => {
-    return cartList.some((producto) => producto.id === id)
+    return cartList.some((product) => product.id === id)
   }
 
   const decreaseProductQuantity = (id) => {
@@ -56,15 +50,7 @@ const CartContextProvider = ( {children} ) => { //este es el componente que prov
     setCartList(newCartList)
   }
 
-  const updateQuantity = (id, quantity) => {
-    return cartList.map((elemento) => {
-      if (elemento.id === id){
-        elemento.cantidad += quantity;
-        return elemento
-      } else return elemento
-    })
-  }
-  
+
   const getCartTotalQuantity = () => {
     const total =  cartList.reduce((acc, curr) => {
       return (acc + curr.cantidad)
@@ -79,6 +65,14 @@ const CartContextProvider = ( {children} ) => { //este es el componente que prov
     return total
   }
 
+  const getProductQuantity = (id) => {
+    let productInitialQuantity = 1
+    if (isInCart(id)){
+      productInitialQuantity = cartList.find((producto) => producto.id === id).cantidad;
+    }
+    return productInitialQuantity
+  }
+
   const cleanCart = () => {
     setCartList([])
   }
@@ -91,7 +85,8 @@ const CartContextProvider = ( {children} ) => { //este es el componente que prov
     deleteProduct,
     getCartTotalAmount,
     cleanCart,
-    getCartTotalQuantity
+    getCartTotalQuantity,
+    getProductQuantity
   }
 
   //value va a manejar todo lo que quiero proveer al contexto

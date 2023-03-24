@@ -27,6 +27,8 @@ const CartContainer = () => {
     return cleanCart()
   }
 
+ 
+
   const cartParams = {
     cartList,
     handleMinus,

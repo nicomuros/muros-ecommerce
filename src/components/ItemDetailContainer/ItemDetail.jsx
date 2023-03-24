@@ -6,11 +6,16 @@ import { CartContext } from '../../context/CartContext'
 
 const ItemDetail = ({producto}) => {
 
-  const {addToCart} = useContext(CartContext)
+  const {addToCart, getProductQuantity} = useContext(CartContext)
 
-
+  const initial = producto && getProductQuantity(producto.id)
+  
   const onAdd = (quantity) => {
-    addToCart(producto, quantity)
+    const productWithQuantity = {
+      ...producto,
+      cantidad: quantity
+    }
+    addToCart(productWithQuantity)
   };
   return (
     <div className={styles.container}>
@@ -27,7 +32,7 @@ const ItemDetail = ({producto}) => {
               <p className={styles.description}>{producto.descripcion}</p>
               <p className={styles.ingredients}>{producto.ingredientes.join(" | ")}</p>
               <p className={styles.price}>Precio: ${producto.precio}</p>
-              <ItemCount stock={5} onAdd={onAdd} />
+              <ItemCount stock={5} initial={initial} onAdd={onAdd} />
             </Col>
             </>
           )}

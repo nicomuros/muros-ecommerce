@@ -5,11 +5,11 @@ import CustomButton from "../CustomButton/CustomButton";
 import styles from "./Cart.module.css";
 
 
-const Cart = ({ cartList, handleMinus, handlePlus, handleDeleteProduct, totalAmount,totalQuantity , handleCleanCart }) => {
+const Cart = ({cartList, handleMinus, handlePlus, handleCleanCart, handleDeleteProduct, totalAmount, totalQuantity}) => {
   return (
     <Container fluid className={styles.container}>
       <Row className={`d-flex justify-content-center`}>
-        {cartList.length > 0 ?
+        {totalQuantity > 0 ?
           <>
           <Col lg={6}>
             {cartList.map((producto) => {

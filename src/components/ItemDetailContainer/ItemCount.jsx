@@ -3,9 +3,9 @@ import styles from './ItemCount.module.css'
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import CustomButton from '../CustomButton/CustomButton';
 
-const ItemCount = ({stock, onAdd}) => {
+const ItemCount = ({stock, onAdd, initial}) => {
 
-  const [quantity, setQuantity] = useState(1)
+  const [quantity, setQuantity] = useState(initial)
   const handlePlus = () => {
     if (quantity < stock){
       setQuantity(quantity + 1);

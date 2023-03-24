@@ -12,7 +12,7 @@ const ItemDetailContainer = () => {
       setProducto(res.data)
     }).catch(e => console.log(e))
   }, [id]);
-  
+
 
   return (
     <ItemDetail producto={producto}/>
