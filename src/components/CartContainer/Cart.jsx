@@ -4,7 +4,8 @@ import { v4 as uuidv4 } from "uuid";
 import CustomButton from "../CustomButton/CustomButton";
 import styles from "./Cart.module.css";
 
-const Cart = ({ cartList, handleMinus, handlePlus, handleDeleteProduct, total, handleBorrarCarrito }) => {
+
+const Cart = ({ cartList, handleMinus, handlePlus, handleDeleteProduct, totalAmount,totalQuantity , handleBorrarCarrito }) => {
   return (
     <Container fluid className={styles.container}>
       <Row className={`d-flex justify-content-center`}>
@@ -50,10 +51,10 @@ const Cart = ({ cartList, handleMinus, handlePlus, handleDeleteProduct, total, h
           <Col lg={4}>
             
             <div className={styles.ticketContainer}>
-              <h3>Productos: 4</h3>
+              <h3>Productos: {totalQuantity}</h3>
               <h3>Envío: a determinar</h3>
 
-              <h3>Total: ${total}</h3>
+              <h3>Total: ${totalAmount}</h3>
               <div className={styles.cartButtons}>
                 <CustomButton text={"Pagar"} paddingReceived={"0px 10px"} />
                 <div onClick={handleBorrarCarrito}>

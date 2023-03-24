@@ -65,7 +65,14 @@ const CartContextProvider = ( {children} ) => { //este es el componente que prov
     })
   }
   
-  const totalAmount = () => {
+  const getCartTotalQuantity = () => {
+    const total =  cartList.reduce((acc, curr) => {
+      return (acc + curr.cantidad)
+    },0)
+    return total
+  }
+
+  const getCartTotalAmount = () => {
     const total =  cartList.reduce((acc, curr) => {
       return (acc + (curr.cantidad * curr.precio))
     },0)
@@ -82,8 +89,9 @@ const CartContextProvider = ( {children} ) => { //este es el componente que prov
     decreaseProductQuantity,
     increaseProductQuantity,
     deleteProduct,
-    totalAmount,
-    limpiarCarrito
+    getCartTotalAmount,
+    limpiarCarrito,
+    getCartTotalQuantity
   }
 
   //value va a manejar todo lo que quiero proveer al contexto

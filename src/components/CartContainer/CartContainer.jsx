@@ -6,7 +6,7 @@ import Cart from './Cart'
 
 const CartContainer = () => {
 
-  const {cartList, decreaseProductQuantity, increaseProductQuantity, deleteProduct, totalAmount, limpiarCarrito} = useContext(CartContext)
+  const {cartList, decreaseProductQuantity, increaseProductQuantity, deleteProduct, getCartTotalAmount, limpiarCarrito, getCartTotalQuantity} = useContext(CartContext)
 
   const handleMinus = (id) => {
     return decreaseProductQuantity(id)
@@ -19,14 +19,26 @@ const CartContainer = () => {
     return deleteProduct(id)
   }
 
-  const total = totalAmount();
-  console.log(totalAmount())
+  const totalAmount = getCartTotalAmount();
+  
+  const totalQuantity = getCartTotalQuantity();
 
   const handleBorrarCarrito = () => {
     return limpiarCarrito()
   }
+
+  const cartParams = {
+    cartList,
+    handleMinus,
+    handlePlus,
+    handleDeleteProduct,
+    totalAmount,
+    totalQuantity,
+    handleBorrarCarrito
+  }
+
   return (
-    <Cart cartList={cartList} handleMinus={handleMinus} handlePlus={handlePlus} handleDeleteProduct={handleDeleteProduct} total={total} handleBorrarCarrito={handleBorrarCarrito}/>
+    <Cart {...cartParams}/>
   )
 }
 
