@@ -1,0 +1,119 @@
+.container{
+  background-color: rgb(251, 190, 0);
+  min-height: calc(100vh - 100px);
+}
+.productContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.24);
+  border-radius: 5px;
+}
+.productInfoContainer{
+  display: flex;  
+}
+.productImg{
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+}
+
+.productText{
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+.productButtons{
+  padding-right: 10px;
+}
+
+.cartButtons{
+  display: flex;
+  justify-content: space-evenly;
+  
+}
+
+.ticketContainer{
+  margin: 10px;
+  padding: 10px 40px;
+  border: 1px solid rgba(0, 0, 0, 0.24);
+  border-radius: 5px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.productButtons{
+  display: flex;
+  flex-direction: column;
+}
+
+.productCounter{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.number {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.minus,
+.plus {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: #2b2f31;
+  color: #fbbe00;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease-in-out;
+  line-height: 1.5rem;
+  user-select: none;
+}
+
+.minus:hover,
+.plus:hover {
+  background-color: #5d010193;
+}
+
+.num {
+  font-size: 25px;
+  border-radius: 4px;
+  display: inline-block;
+  vertical-align: middle;
+  color: #2b2f31;
+}
+.emptyCartMessage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.emptyCartMessage img {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.emptyCartMessage h4 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  color: #2b2f31;
+}

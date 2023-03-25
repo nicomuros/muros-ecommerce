@@ -1,36 +1,24 @@
-import Separador from "../Separador/Separador";
-import { v4 as uuidv4 } from "uuid";
-export function Categorizador(items) {
-  const categorizados = items
-    ? items
-
-        .sort((a, b) => {
-          if (a.categoria === b.categoria) {
-            return b.id - a.id; // Ordenar por id dentro de la misma categoría
-          }
-          return a.categoria > b.categoria ? 1 : -1; // Ordenar por categoría
-        })
-        .reduce(
-          (acc, curr) => {
-            if (curr.categoria !== acc[1]) {
-              acc = [
-                [
-                  ...acc[0],
-                  {type: "titulo",
-                  titulo: curr.categoria},
-                  curr,
-                ], curr.categoria,
-              ];
-            } else {
-              acc = [[...acc[0], curr], curr.categoria];
-            }
-            return acc;
-          },
-          [[], null]
-        )
-    : [];
-    return categorizados[0]
-  
-  
-  ;
+export function Categorizador(items = []) {
+  const itemsOrdenados = sortItems(items)
+  const itemsTitulados = addTitles(itemsOrdenados)
+  return itemsTitulados
 }
+  
+const sortItems = (items) => {
+  return items.sort((currProduct, nextProduct) => {
+    if (currProduct.category === nextProduct.category) {
+      return nextProduct.id - currProduct.id; // Ordenar por id dentro de la misma categoría
+    }
+    return currProduct.category > nextProduct.category ? 1 : -1; // Ordenar por categoría
+  })
+}
+  
+const addTitles = (itemsOrdenados) => {
+  return itemsOrdenados.reduce((acc, item, index) => {
+    const prevCategory = index > 0 && itemsOrdenados[index - 1].category
+    return prevCategory !== item.category
+      ? [...acc, { type: "titulo", titulo: item.category }, item]
+      : [...acc, item]
+  }, [])
+}
+ 

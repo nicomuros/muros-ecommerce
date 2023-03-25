@@ -33,18 +33,17 @@ const CustomNavbar = () => {
           </Link>
         </Navbar.Brand>
         <Nav className="d-md-none">
-          <Button variant="dark">
-            <CartWidget />
-          </Button>
+          <Link to="/cart">
+            <Button variant="dark">
+              <CartWidget />
+            </Button>
+          </Link>
         </Nav>
 
         <NavbarCollapse id="responsive-navbar-nav" className="navcol">
           <Nav fill className="navigator">
             <Link to="/">
-              <Button
-                variant="dark"
-                className="d-none d-md-block"
-              >
+              <Button variant="dark" className="d-none d-md-block">
                 <GiHamburger
                   style={{ fontSize: "2rem" }}
                   className="text-center"
@@ -52,23 +51,22 @@ const CustomNavbar = () => {
               </Button>
             </Link>
             <Link to="category/carne">
-              <Button variant="dark">
-                Carne
-              </Button>
+              <Button variant="dark">Carne</Button>
             </Link>
             <Link to="category/veggie">
-              <Button variant="dark">
-                Veggie
-              </Button>
+              <Button variant="dark">Veggie</Button>
             </Link>
             <Link to="category/fritas">
-              <Button variant="dark">
-                Papas
+              <Button variant="dark">Papas</Button>
+            </Link>
+            <Link to="contactanos">
+              <Button variant="dark">Contacto</Button>
+            </Link>
+            <Link to="cart">
+              <Button variant="dark" className="d-none d-md-block">
+                <CartWidget />
               </Button>
-            </Link><Link to="cart">
-            <Button variant="dark" className="d-none d-md-block">
-              <CartWidget />
-            </Button></Link>
+            </Link>
           </Nav>
         </NavbarCollapse>
       </Container>

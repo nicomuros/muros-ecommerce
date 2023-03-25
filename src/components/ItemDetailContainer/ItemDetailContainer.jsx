@@ -1,29 +1,66 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { products } from "../productsMock";
 import ItemDetail from "./ItemDetail";
+import LoadingPage from "../LoadingPage/LoadingPage";
+import { CartContext } from '../../context/CartContext'
+import Swal from 'sweetalert2'
+import {getDoc, collection, doc} from "firebase/firestore"
+import { db } from "../../firebaseConfig";
 
 const ItemDetailContainer = () => {
+  
   const { id } = useParams();
-  const [producto, setProducto] = useState();
+  
+  const [product, setProduct] = useState();
+  const [areItemsCharged, setAreItemsCharged] = useState(false)
   
   useEffect(() => {
-    const promise = new Promise((res) => {
-      const item = products.find((element) => element.id === id);
-      res(item);
-    });
-    promise
-      .then((res) => {
-        console.log("respuesta: " + res)
-        setProducto(res)
-      })
-      .catch((e) => console.log(e));
-
+    setAreItemsCharged(false);
+    const itemCollection = collection(db, "products");
+    const queryById = doc(itemCollection, id);
+    getDoc(queryById)
+    .then(receivedProduct => {
+      setProduct({
+        ...receivedProduct.data(),
+        hostId: receivedProduct.id
+      });
+      setAreItemsCharged(true);
+    })
   }, [id]);
   
-
+  const {addToCart, getProductQuantity} = useContext(CartContext)
+  
+  const initial = product && getProductQuantity(product.id)
+  
+  const onAdd = (quantity) => {
+    const productWithQuantity = {
+      ...product,
+      quantity
+    }
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Producto agregado al carrito',
+      showConfirmButton: false,
+      timer: 1000
+    })
+    addToCart(productWithQuantity);
+  }
+  
+  
+  const itemDetailProps = {
+    product,
+    initial,
+    onAdd
+  }
+  
   return (
-    <ItemDetail producto={producto}/>
+    <div>
+      {areItemsCharged
+        ? <ItemDetail {...itemDetailProps}/>
+        : <LoadingPage />}
+    </div>
+    
   );
 };
 
