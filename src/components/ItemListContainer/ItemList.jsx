@@ -6,7 +6,9 @@ import Separador from "../Separador/Separador";
 const ItemList = ({ items }) => {
   const renderItems = Categorizador(items)
   return (
-    <Container>
+    <Container style={{
+      minHeight: "calc(100vh - 100px)"
+    }}>
       <Row className="d-flex justify-content-center align-items-center">
         {renderItems && renderItems.map((elemento) => {
           if (elemento.type) return <Separador title={elemento.titulo} key={uuidv4()}/>

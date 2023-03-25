@@ -1,5 +1,6 @@
 .container{
   background-color: rgb(251, 190, 0);
+  min-height: calc(100vh - 100px);
 }
 
 .inputContainer{

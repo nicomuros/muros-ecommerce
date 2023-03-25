@@ -17,7 +17,7 @@ function Footer() {
         </Row>
         <Row className="justify-content-center">
           <Col xs={2} className="text-center">
-<AiOutlineTwitter size={40}/>
+            <AiOutlineTwitter size={40}/>
           </Col>
           <Col xs={2} className="text-center">
             <FaInstagram size={40} />
