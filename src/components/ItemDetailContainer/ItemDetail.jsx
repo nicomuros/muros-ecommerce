@@ -3,6 +3,7 @@ import styles from './ItemDetail.module.css'
 import { Col, Container, Image, Row } from 'react-bootstrap'
 import ItemCount from './ItemCount'
 import { CartContext } from '../../context/CartContext'
+import Swal from 'sweetalert2'
 
 const ItemDetail = ({producto}) => {
 
@@ -15,6 +16,13 @@ const ItemDetail = ({producto}) => {
       ...producto,
       quantity
     }
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Producto agregado al carrito',
+      showConfirmButton: false,
+      timer: 1000
+    })
     addToCart(productWithQuantity)
   };
   return (
