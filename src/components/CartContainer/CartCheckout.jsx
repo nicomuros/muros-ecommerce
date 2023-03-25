@@ -2,6 +2,7 @@ import React from "react";
 import CustomButton from "../CustomButton/CustomButton";
 import styles from "./Cart.module.css";
 const CartCheckout = ({ totalQuantity, totalAmount, handleCleanCart }) => {
+  console.log(totalAmount)
   return (
     <div className={styles.ticketContainer}>
       <h3>Productos: {totalQuantity}</h3>

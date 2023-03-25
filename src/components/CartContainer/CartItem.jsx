@@ -15,8 +15,8 @@ const CartItem = ({producto, handleMinus, handlePlus, handleDeleteProduct}) => {
           />
         </div>
         <div className={styles.productText}>
-          <h5>{producto.nombre}</h5>
-          <h6>$ {producto.precio}</h6>
+          <h5>{producto.name}</h5>
+          <h6>$ {producto.price}</h6>
         </div>
       </div>
       <div className={styles.productButtons}>
