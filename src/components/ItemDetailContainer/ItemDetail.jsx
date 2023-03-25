@@ -13,7 +13,7 @@ const ItemDetail = ({producto}) => {
   const onAdd = (quantity) => {
     const productWithQuantity = {
       ...producto,
-      cantidad: quantity
+      quantity
     }
     addToCart(productWithQuantity)
   };

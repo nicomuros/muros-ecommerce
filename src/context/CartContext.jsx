@@ -22,27 +22,23 @@ const CartContextProvider = ( {children} ) => { //este es el componente que prov
   }
 
   const decreaseProductQuantity = (id) => {
-    const product = cartList.find((producto) => producto.id === id);
-    if (product.cantidad > 1) {
-      const newCartList = cartList.map((elemento) => {
-        if (elemento.id === id) {
-          return {...elemento, cantidad: elemento.cantidad-1}
-        } else return elemento
-      })
-      setCartList(newCartList)
-    }
-  }
+    const MIN_QUANTITY = 1
+    const newCartList = cartList.map((product) =>
+      (product.id === id && product.quantity > MIN_QUANTITY)
+        ? { ...product, quantity: product.quantity - 1 }
+        : product
+    );
+    setCartList(newCartList);
+  };
 
   const increaseProductQuantity = (id) => {
-    const product = cartList.find((producto) => producto.id === id);
-    if (product.cantidad < 6) {
-      const newCartList = cartList.map((elemento) => {
-        if (elemento.id === id) {
-          return {...elemento, cantidad: elemento.cantidad+1}
-        } else return elemento
-      })
-      setCartList(newCartList)
-    }
+    const MAX_QUANTITY = 6
+    const newCartList = cartList.map((product) =>
+      (product.id === id && product.quantity < MAX_QUANTITY)
+        ? { ...product, quantity: product.quantity + 1 }
+        : product
+    );
+    setCartList(newCartList);
   }
 
   const deleteProduct = (id) => {
@@ -53,14 +49,14 @@ const CartContextProvider = ( {children} ) => { //este es el componente que prov
 
   const getCartTotalQuantity = () => {
     const total =  cartList.reduce((acc, curr) => {
-      return (acc + curr.cantidad)
+      return (acc + curr.quantity)
     },0)
     return total
   }
 
   const getCartTotalAmount = () => {
     const total =  cartList.reduce((acc, curr) => {
-      return (acc + (curr.cantidad * curr.precio))
+      return (acc + (curr.quantity * curr.precio))
     },0)
     return total
   }
@@ -68,7 +64,7 @@ const CartContextProvider = ( {children} ) => { //este es el componente que prov
   const getProductQuantity = (id) => {
     let productInitialQuantity = 1
     if (isInCart(id)){
-      productInitialQuantity = cartList.find((producto) => producto.id === id).cantidad;
+      productInitialQuantity = cartList.find((producto) => producto.id === id).quantity;
     }
     return productInitialQuantity
   }
