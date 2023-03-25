@@ -3,6 +3,9 @@ import { v4 as uuidv4 } from "uuid";
 import styles from "./Cart.module.css";
 import CartCheckout from "./CartCheckout";
 import CartItem from "./CartItem";
+import EmptyCart from "./EmptyCart";
+
+
 
 const Cart = ({
   cartList,
@@ -33,7 +36,11 @@ const Cart = ({
             <Col lg={6}>
               {cartList.map((producto) => {
                 return (
-                  <CartItem key={uuidv4()} producto={producto} {...cartItemProps}/>
+                  <CartItem
+                    key={uuidv4()}
+                    producto={producto}
+                    {...cartItemProps}
+                  />
                 );
               })}
             </Col>
@@ -42,10 +49,8 @@ const Cart = ({
             </Col>
           </>
         ) : (
-          <Col md={4} style={{marginTop: "100px"}}>
-            <h4>
-              <em>El carrito está vacio</em>
-            </h4>
+          <Col md={4} style={{ marginTop: "100px" }}>
+            <EmptyCart />
           </Col>
         )}
       </Row>

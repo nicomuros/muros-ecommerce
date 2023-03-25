@@ -97,3 +97,23 @@
   vertical-align: middle;
   color: #2b2f31;
 }
+.emptyCartMessage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.emptyCartMessage img {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.emptyCartMessage h4 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  color: #2b2f31;
+}
