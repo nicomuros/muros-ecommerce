@@ -56,7 +56,7 @@ const ItemListContainer = () => {
     <>
     {
       (areItemsCharged) 
-      ? <div className="products"  style={{backgroundColor: "#fbbe00"}}>
+      ? <div className="products"  style={{backgroundColor: "#fbbe00", paddingBottom: 50}}>
          <ItemList items={items} />
         </div>
       : <LoadingPage />

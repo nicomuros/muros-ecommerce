@@ -9,7 +9,7 @@ const EmptyCart = () => {
         src="http://cdn.onlinewebfonts.com/svg/img_456359.png"
         alt="Carrito vacío"
       />
-      <h4>Tu carrito está vacío</h4>
+      <h4>Su carrito está vacío</h4>
     </div>
   );
 };

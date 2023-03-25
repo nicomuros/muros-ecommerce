@@ -6,15 +6,15 @@ const CartCheckout = ({ totalQuantity, totalAmount, handleCleanCart }) => {
   return (
     <div className={styles.ticketContainer}>
       <h3>Productos: {totalQuantity}</h3>
-      <h3>Envío: a determinar</h3>
+      <h3>Envío: <em style={{fontWeight: 400, fontSize: 25}}>A determinar...</em></h3>
 
-      <h3>Total: ${totalAmount}</h3>
+      <h3>Subtotal: ${totalAmount}</h3>
       <div className={styles.cartButtons}>
-        <CustomButton text={"Pagar"} paddingReceived={"0px 10px"} />
+        <CustomButton text={"Finalizar compra"} paddingReceived={"0px 20px"} />
         <div onClick={handleCleanCart}>
           <CustomButton
             text={"Borrar carrito"}
-            paddingReceived={"0px 10px"}
+            paddingReceived={"0px 20px"}
             colorReceived={"green"}
           />
         </div>
