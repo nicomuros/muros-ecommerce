@@ -1,30 +1,8 @@
-import React, { useContext } from 'react'
 import styles from './ItemDetail.module.css'
 import { Col, Container, Image, Row } from 'react-bootstrap'
 import ItemCount from './ItemCount'
-import { CartContext } from '../../context/CartContext'
-import Swal from 'sweetalert2'
 
-const ItemDetail = ({producto}) => {
-
-  const {addToCart, getProductQuantity} = useContext(CartContext)
-
-  const initial = producto && getProductQuantity(producto.id)
-  
-  const onAdd = (quantity) => {
-    const productWithQuantity = {
-      ...producto,
-      quantity
-    }
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Producto agregado al carrito',
-      showConfirmButton: false,
-      timer: 1000
-    })
-    addToCart(productWithQuantity)
-  };
+const ItemDetail = ({producto, initial, onAdd}) => {
   return (
     <div className={styles.container}>
       
@@ -36,10 +14,10 @@ const ItemDetail = ({producto}) => {
               <Image src={producto.img} fluid className={styles.imagen}/>
             </Col>
             <Col lg={6}>
-              <h1 className={styles.title}>{producto.nombre}</h1>
-              <p className={styles.description}>{producto.descripcion}</p>
-              <p className={styles.ingredients}>{producto.ingredientes.join(" | ")}</p>
-              <p className={styles.price}>Precio: ${producto.precio}</p>
+              <h1 className={styles.title}>{producto.name}</h1>
+              <p className={styles.description}>{producto.description}</p>
+              <p className={styles.ingredients}>{producto.ingredients.join(" | ")}</p>
+              <p className={styles.price}>Precio: ${producto.price}</p>
               <ItemCount stock={5} initial={initial} onAdd={onAdd} />
             </Col>
             </>
