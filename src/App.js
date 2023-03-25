@@ -5,6 +5,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import ContactoContainer from "./components/ContactoContainer/ContactoContainer";
 import CartContextProvider from "./context/CartContext";
 import CartContainer from "./components/CartContainer/CartContainer";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="*" element={<h1> error 404: Not found </h1>} />
           </Routes>
         </CartContextProvider>
+        <Footer />
       </BrowserRouter>
     </>
   )
