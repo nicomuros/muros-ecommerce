@@ -6,18 +6,18 @@ export function Categorizador(items = []) {
   
 const sortItems = (items) => {
   return items.sort((currProduct, nextProduct) => {
-    if (currProduct.categoria === nextProduct.categoria) {
+    if (currProduct.category === nextProduct.category) {
       return nextProduct.id - currProduct.id; // Ordenar por id dentro de la misma categoría
     }
-    return currProduct.categoria > nextProduct.categoria ? 1 : -1; // Ordenar por categoría
+    return currProduct.category > nextProduct.category ? 1 : -1; // Ordenar por categoría
   })
 }
   
 const addTitles = (itemsOrdenados) => {
   return itemsOrdenados.reduce((acc, item, index) => {
-    const prevCategory = index > 0 && itemsOrdenados[index - 1].categoria
-    return prevCategory !== item.categoria
-      ? [...acc, { type: "titulo", titulo: item.categoria }, item]
+    const prevCategory = index > 0 && itemsOrdenados[index - 1].category
+    return prevCategory !== item.category
+      ? [...acc, { type: "titulo", titulo: item.category }, item]
       : [...acc, item]
   }, [])
 }

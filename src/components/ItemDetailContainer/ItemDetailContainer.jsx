@@ -1,25 +1,40 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
-import axios from "axios"
 import LoadingPage from "../LoadingPage/LoadingPage";
 import { CartContext } from '../../context/CartContext'
 import Swal from 'sweetalert2'
+import {getDoc, collection, doc} from "firebase/firestore"
+import { db } from "../../firebaseConfig";
 
 const ItemDetailContainer = () => {
-
+  
   const { id } = useParams();
-
-  const [producto, setProducto] = useState();
+  
+  const [product, setProduct] = useState();
   const [areItemsCharged, setAreItemsCharged] = useState(false)
   
+  useEffect(() => {
+    setAreItemsCharged(false);
+    const itemCollection = collection(db, "products");
+    const queryById = doc(itemCollection, id);
+    getDoc(queryById)
+    .then(receivedProduct => {
+      setProduct({
+        ...receivedProduct.data(),
+        hostId: receivedProduct.id
+      });
+      setAreItemsCharged(true);
+    })
+  }, [id]);
+  
   const {addToCart, getProductQuantity} = useContext(CartContext)
-
-  const initial = producto && getProductQuantity(producto.id)
+  
+  const initial = product && getProductQuantity(product.id)
   
   const onAdd = (quantity) => {
     const productWithQuantity = {
-      ...producto,
+      ...product,
       quantity
     }
     Swal.fire({
@@ -31,24 +46,14 @@ const ItemDetailContainer = () => {
     })
     addToCart(productWithQuantity);
   }
+  
+  
   const itemDetailProps = {
-    producto,
+    product,
     initial,
     onAdd
   }
   
-  useEffect(() => {
-    setAreItemsCharged(false)
-    setTimeout(() => {
-      const getData = axios.get(`http://localhost:5000/products/${id}`)
-      getData.then((res) => {
-        setProducto(res.data)
-      }).catch(e => console.log(e))
-      setAreItemsCharged(true);
-    },500)
-  }, [id]);
-
-
   return (
     <div>
       {areItemsCharged

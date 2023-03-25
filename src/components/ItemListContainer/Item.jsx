@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 import styles from "./Item.module.css";
 
 const Item = ({ item }) => {
+
   return (
     <Col lg={6} style={{
     }}>
-      <Link to={`/item/${item.id}`} className={styles.link}>
+      <Link to={`/item/${item.hostId}/${item.name}`} className={styles.link}>
         <Card
           style={{
             display: "flex",
@@ -25,12 +26,12 @@ const Item = ({ item }) => {
           </div>
           <div className="pl-3">
             <Card.Body>
-              <Card.Text className={` ${styles.titulo}`}>{item.nombre}</Card.Text>
+              <Card.Text className={` ${styles.titulo}`}>{item.name}</Card.Text>
               <Card.Text className={styles.texto}>
-                {item.ingredientes.join(" - ")}
+                {item.ingredients.join(" - ")}
               </Card.Text>
               <Card.Text className={styles.precio}>
-                ${item.precio}
+                ${item.price}
               </Card.Text>
             </Card.Body>
           </div>

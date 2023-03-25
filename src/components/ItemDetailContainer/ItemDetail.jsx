@@ -2,22 +2,22 @@ import styles from './ItemDetail.module.css'
 import { Col, Container, Image, Row } from 'react-bootstrap'
 import ItemCount from './ItemCount'
 
-const ItemDetail = ({producto, initial, onAdd}) => {
+const ItemDetail = ({product, initial, onAdd}) => {
   return (
     <div className={styles.container}>
       
       <Container>
         <Row>
-          {producto && (
+          {product && (
             <>
             <Col lg={6}>
-              <Image src={producto.img} fluid className={styles.imagen}/>
+              <Image src={product.img} fluid className={styles.imagen}/>
             </Col>
             <Col lg={6}>
-              <h1 className={styles.title}>{producto.name}</h1>
-              <p className={styles.description}>{producto.description}</p>
-              <p className={styles.ingredients}>{producto.ingredients.join(" | ")}</p>
-              <p className={styles.price}>Precio: ${producto.price}</p>
+              <h1 className={styles.title}>{product.name}</h1>
+              <p className={styles.description}>{product.description}</p>
+              <p className={styles.ingredients}>{product.ingredients.join(" | ")}</p>
+              <p className={styles.price}>Precio: ${product.price}</p>
               <ItemCount stock={5} initial={initial} onAdd={onAdd} />
             </Col>
             </>
