@@ -14,19 +14,19 @@
   background-image: url("https://res.cloudinary.com/dna9rrdkj/image/upload/v1677453124/Rock%20n%27%20burger/welcome-carrusel/img1_aiwiel.jpg");
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: calc(100vh - 100px);
 }
 .bg-img2 {
   background-image: url("https://res.cloudinary.com/dna9rrdkj/image/upload/v1677453124/Rock%20n%27%20burger/welcome-carrusel/img2_qrj0nx.jpg");
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: calc(100vh - 100px);
 }
 .bg-img3 {
   background-image: url("https://res.cloudinary.com/dna9rrdkj/image/upload/v1677453124/Rock%20n%27%20burger/welcome-carrusel/img3_wo545c.jpg");
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: calc(100vh - 100px);
 }
 
 .carousel-caption {
