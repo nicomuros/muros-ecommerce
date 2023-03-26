@@ -10,11 +10,11 @@ const CartCheckout = ({ totalQuantity, totalAmount, handleCleanCart }) => {
 
       <h3>Subtotal: ${totalAmount}</h3>
       <div className={styles.cartButtons}>
-        <CustomButton text={"Finalizar compra"} paddingReceived={"0px 20px"} />
+        <CustomButton text={"Finalizar compra"} paddingReceived={"0px 15px"} />
         <div onClick={handleCleanCart}>
           <CustomButton
             text={"Borrar carrito"}
-            paddingReceived={"0px 20px"}
+            paddingReceived={"0px 15px"}
             colorReceived={"green"}
           />
         </div>
