@@ -50,13 +50,16 @@ const CustomNavbar = () => {
                 />
               </Button>
             </Link>
-            <Link to="category/carne">
+            <Link to="menu">
+              <Button variant="dark">Menu completo</Button>
+            </Link>
+            <Link to="menu/carne">
               <Button variant="dark">Carne</Button>
             </Link>
-            <Link to="category/veggie">
+            <Link to="menu/veggie">
               <Button variant="dark">Veggie</Button>
             </Link>
-            <Link to="category/fritas">
+            <Link to="menu/fritas">
               <Button variant="dark">Papas</Button>
             </Link>
             <Link to="contactanos">

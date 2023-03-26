@@ -6,6 +6,7 @@ import ContactoContainer from "./components/ContactoContainer/ContactoContainer"
 import CartContextProvider from "./context/CartContext";
 import CartContainer from "./components/CartContainer/CartContainer";
 import Footer from "./components/Footer/Footer";
+import Welcome from "./components/Welcome/Welcome";
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
           <CustomNavbar />
 
           <Routes>
-            <Route path="/" element={ <ItemListContainer /> }/>
-            <Route path="/category/:categoryName" element={ <ItemListContainer /> }/>
+            <Route path="/" element={<Welcome />} />
+            <Route path="/menu" element={ <ItemListContainer /> }/>
+            <Route path="/menu/:categoryName" element={ <ItemListContainer /> }/>
             <Route path="/item/:id/:name" element={ <ItemDetailContainer /> }/>
             <Route path="/contactanos" element={ <ContactoContainer /> }/>
             <Route path="/cart" element={ <CartContainer /> }/>
