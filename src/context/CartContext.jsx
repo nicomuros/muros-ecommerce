@@ -73,6 +73,7 @@ const CartContextProvider = ( {children} ) => { //este es el componente que prov
   const cleanCart = () => {
     setCartList([])
   }
+
   const cartContextList = {
     cartList,
     setCartList,

@@ -31,7 +31,8 @@ const ItemDetailContainer = () => {
   const {addToCart, getProductQuantity} = useContext(CartContext)
   
   const initial = product && getProductQuantity(product.id)
-  
+  const stock = product && product.stock
+
   const onAdd = (quantity) => {
     const productWithQuantity = {
       ...product,
@@ -51,6 +52,7 @@ const ItemDetailContainer = () => {
   const itemDetailProps = {
     product,
     initial,
+    stock,
     onAdd
   }
   

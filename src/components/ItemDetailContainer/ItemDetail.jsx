@@ -2,7 +2,7 @@ import styles from './ItemDetail.module.css'
 import { Col, Container, Image, Row } from 'react-bootstrap'
 import ItemCount from './ItemCount'
 
-const ItemDetail = ({product, initial, onAdd}) => {
+const ItemDetail = ({product, initial, onAdd, stock}) => {
   return (
     <div className={styles.container}>
       
@@ -18,7 +18,7 @@ const ItemDetail = ({product, initial, onAdd}) => {
               <p className={styles.description}>{product.description}</p>
               <p className={styles.ingredients}>{product.ingredients.join(" | ")}</p>
               <p className={styles.price}>Precio: ${product.price}</p>
-              <ItemCount stock={5} initial={initial} onAdd={onAdd} />
+              <ItemCount stock={stock} initial={initial} onAdd={onAdd}/>
             </Col>
             </>
           )}
