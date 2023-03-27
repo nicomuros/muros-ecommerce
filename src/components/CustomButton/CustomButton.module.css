@@ -14,6 +14,7 @@
   vertical-align: middle;
   color: #fbbe00;
   transition: background-color 0.2s ease-in-out;
+  white-space: nowrap;
 }
 
 .buttn:hover{

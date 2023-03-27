@@ -33,7 +33,7 @@ const Cart = ({
       <Row className={`d-flex justify-content-center`}>
         {totalQuantity > 0 ? (
           <>
-            <Col lg={6}>
+            <Col lg={6} >
               {cartList.map((producto) => {
                 return (
                   <CartItem
@@ -44,7 +44,7 @@ const Cart = ({
                 );
               })}
             </Col>
-            <Col lg={4}>
+            <Col lg={4} >
               <CartCheckout {...cartCheckoutProps} />
             </Col>
           </>

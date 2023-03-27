@@ -1,6 +1,7 @@
 import React from "react";
 import CustomButton from "../CustomButton/CustomButton";
 import styles from "./Cart.module.css";
+
 const CartCheckout = ({ totalQuantity, totalAmount, handleCleanCart }) => {
   console.log(totalAmount)
   return (
@@ -9,13 +10,14 @@ const CartCheckout = ({ totalQuantity, totalAmount, handleCleanCart }) => {
       <h3>Envío: <em style={{fontWeight: 400, fontSize: 25}}>A determinar...</em></h3>
 
       <h3>Subtotal: ${totalAmount}</h3>
-      <div className={styles.cartButtons}>
-        <CustomButton text={"Finalizar compra"} paddingReceived={"0px 20px"} />
+      <div className={styles.cartButtons} style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '10px'}}>
+        <div><CustomButton text={"Finalizar compra"} paddingReceived={"0px 15px"} width={"200px"}/></div>
         <div onClick={handleCleanCart}>
           <CustomButton
             text={"Borrar carrito"}
-            paddingReceived={"0px 20px"}
+            paddingReceived={"0px 15px"}
             colorReceived={"green"}
+            width={"200px"}
           />
         </div>
       </div>
