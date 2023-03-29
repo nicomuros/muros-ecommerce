@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap";
+import { Button, Dropdown } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
 import Nav from "react-bootstrap/Nav";
@@ -7,11 +7,8 @@ import CartWidget from "./CartWidget";
 import { GiHamburger } from "react-icons/gi";
 import "./CustomNavbar.css";
 import { Link } from "react-router-dom";
-//TODO
-/*
-    Customizar navbar en casa breakpoint, para eso estaba pensando en buscar que clases representan los breakpoints
-    y ver si al customizarlas desde css unicamente se afecta ese breakpoint y no toda la barra (xl, md, xs)
-    */
+import DropdownItem from "react-bootstrap/esm/DropdownItem";
+
 const CustomNavbar = () => {
   return (
     <Navbar
@@ -50,6 +47,16 @@ const CustomNavbar = () => {
                 />
               </Button>
             </Link>
+            <Dropdown>
+              <Dropdown.Toggle variant="dark" id="dropdown-basic">
+                Categorias
+              </Dropdown.Toggle>
+              <Dropdown.Menu variant="dark">
+                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
             <Link to="menu">
               <Button variant="dark">Menu completo</Button>
             </Link>
