@@ -1,9 +1,9 @@
 .container {
     display: flex;
     align-items: center;
-    min-height: calc(100vh - 100px);
+    min-height: 100vh;
     background-color: #fbbe00;
-    padding: 30px 0px
+    padding: 100px 0px 30px 0px;
   }
   
   .title {

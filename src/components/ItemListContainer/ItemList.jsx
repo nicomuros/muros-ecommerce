@@ -8,7 +8,8 @@ const ItemList = ({ items }) => {
   return (
     <Container
       style={{
-        minHeight: "calc(100vh - 100px)",
+        minHeight: "100vh",
+        paddingTop: 80
       }}
     >
       <Row className="d-flex justify-content-center align-items-center">

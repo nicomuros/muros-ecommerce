@@ -13,7 +13,7 @@ const NavbarComponent = (navbarProps) => {
       bg="dark"
       variant="dark"
       expand="md"
-      className="res-xl res-lg res-md res-sm mynav"
+      className="res-xl res-lg res-md res-sm mynav fixed-top"
     >
       <Container className="d-flex align-items-center">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

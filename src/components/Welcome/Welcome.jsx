@@ -4,7 +4,7 @@ import Separador from "../Separador/Separador";
 import "./Welcome.css";
 const Welcome = () => {
   return (
-    <>
+    <div class="welcome-container">
     <Carousel interval={2000} fade>
       <Carousel.Item>
         <img className="d-block w-100 bg-img1" alt="" />
@@ -45,7 +45,7 @@ const Welcome = () => {
     </Container>
     <Separador title={"Nuestro menu"}/>
     <ItemListContainer />
-    </>
+    </div>
   );
 };
 

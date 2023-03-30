@@ -9,24 +9,24 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
 }
-
-.bg-img1 {
-  background-image: url("https://res.cloudinary.com/dna9rrdkj/image/upload/v1677453124/Rock%20n%27%20burger/welcome-carrusel/img1_aiwiel.jpg");
+.bg-img1,
+.bg-img2,
+.bg-img3 {
   background-size: cover;
   background-position: center;
-  height: calc(100vh - 100px);
+  height: 100vh;
+}
+.bg-img1 {
+  background-image: url("https://res.cloudinary.com/dna9rrdkj/image/upload/v1677453124/Rock%20n%27%20burger/welcome-carrusel/img1_aiwiel.jpg");
+  
 }
 .bg-img2 {
   background-image: url("https://res.cloudinary.com/dna9rrdkj/image/upload/v1677453124/Rock%20n%27%20burger/welcome-carrusel/img2_qrj0nx.jpg");
-  background-size: cover;
-  background-position: center;
-  height: calc(100vh - 100px);
+
 }
 .bg-img3 {
   background-image: url("https://res.cloudinary.com/dna9rrdkj/image/upload/v1677453124/Rock%20n%27%20burger/welcome-carrusel/img3_wo545c.jpg");
-  background-size: cover;
-  background-position: center;
-  height: calc(100vh - 100px);
+
 }
 
 .carousel-caption {

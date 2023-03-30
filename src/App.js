@@ -8,13 +8,13 @@ import CartContainer from "./components/CartContainer/CartContainer";
 import Footer from "./components/Footer/Footer";
 import Welcome from "./components/Welcome/Welcome";
 
+
 function App() {
   return (
     <>
       <BrowserRouter>
         <CartContextProvider> {/* envuelve todo aquello que va a tener contexto*/}
           <NavbarContainer />
-
           <Routes>
             <Route path="/" element={<Welcome />} />
             <Route path="/menu" element={ <ItemListContainer /> }/>

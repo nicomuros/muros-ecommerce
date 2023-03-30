@@ -1,6 +1,7 @@
 .container{
   background-color: rgb(251, 190, 0);
-  min-height: calc(100vh - 100px);
+  min-height: 100vh;
+  padding-top: 120px
 }
 .productContainer{
   display: flex;

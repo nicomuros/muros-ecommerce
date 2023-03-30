@@ -11,6 +11,8 @@
 .custom-dropdown-toggle{
   width: 100%
 }
+
+
 @media (min-width: 992px) {
   .res-lg {
     height: 100px;
