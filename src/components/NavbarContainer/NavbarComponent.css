@@ -5,10 +5,11 @@
   width: 100%;
 }
 
-
-@media (min-width: 576px) {
+.custom-dropdown-toggle::after {
+  display: none !important;
 }
-@media (min-width: 768px) {
+.custom-dropdown-toggle{
+  width: 100%
 }
 @media (min-width: 992px) {
   .res-lg {
@@ -20,3 +21,6 @@
     height: 100px;
   }
 }
+
+
+

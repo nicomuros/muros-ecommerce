@@ -38,20 +38,7 @@ const ItemListContainer = () => {
       }
     })
   }
-
-  /*
-    setTimeout(() => {
-      const getData = axios.get("http://localhost:5000/products")
-      getData.then((res) => {
-        if (categoryName) {
-          setItem(res.data.filter(item => item.categoria === categoryName))
-          
-        } else setItem(res.data)
-      })
-      setAreItemsCharged(true);
-    },500)
-    
-    */
+  
   return (
     <>
     {

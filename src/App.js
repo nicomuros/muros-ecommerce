@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import CustomNavbar from "./components/CustomNavbar/CustomNavbar"
+import NavbarContainer from "./components/NavbarContainer/NavbarContainer"
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer"
 import ContactoContainer from "./components/ContactoContainer/ContactoContainer";
@@ -13,7 +13,7 @@ function App() {
     <>
       <BrowserRouter>
         <CartContextProvider> {/* envuelve todo aquello que va a tener contexto*/}
-          <CustomNavbar />
+          <NavbarContainer />
 
           <Routes>
             <Route path="/" element={<Welcome />} />
