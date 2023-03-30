@@ -7,26 +7,10 @@ import EmptyCart from "./EmptyCart";
 
 
 
-const Cart = ({
-  cartList,
-  handleMinus,
-  handlePlus,
-  handleCleanCart,
-  handleDeleteProduct,
-  totalAmount,
-  totalQuantity,
-}) => {
-  const cartItemProps = {
-    handleMinus,
-    handlePlus,
-    handleDeleteProduct,
-  };
+const Cart = ( {cartItemProps, cartCheckoutProps, cartList, totalQuantity}) => {
+  
 
-  const cartCheckoutProps = {
-    totalAmount,
-    totalQuantity,
-    handleCleanCart,
-  };
+  
 
   return (
     <Container fluid className={styles.container}>

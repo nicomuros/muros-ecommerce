@@ -58,7 +58,7 @@ const CartContextProvider = ( {children} ) => { //este es el componente que prov
     const total =  cartList.reduce((acc, curr) => {
       return (acc + (curr.quantity * curr.price))
     },0)
-    console.log("total " + total)
+ 
     return total
   }
 

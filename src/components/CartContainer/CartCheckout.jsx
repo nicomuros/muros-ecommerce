@@ -1,9 +1,9 @@
 import React from "react";
+import CheckoutContainer from "../CheckoutContainer/CheckoutContainer";
 import CustomButton from "../CustomButton/CustomButton";
 import styles from "./Cart.module.css";
 
-const CartCheckout = ({ totalQuantity, totalAmount, handleCleanCart }) => {
-  console.log(totalAmount)
+const CartCheckout = ({ totalQuantity, totalAmount, handleCleanCart, handleConfirmOrder, isModalActive }) => {
   return (
     <div className={styles.ticketContainer}>
       <h3>Productos: {totalQuantity}</h3>
@@ -11,7 +11,10 @@ const CartCheckout = ({ totalQuantity, totalAmount, handleCleanCart }) => {
 
       <h3>Subtotal: ${totalAmount}</h3>
       <div className={styles.cartButtons} style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '10px'}}>
-        <div><CustomButton text={"Finalizar compra"} paddingReceived={"0px 15px"} width={"200px"}/></div>
+        
+        <div onClick={handleConfirmOrder}>
+          <CustomButton text={"Finalizar compra"} paddingReceived={"0px 15px"} width={"200px"}/>
+        </div>
         <div onClick={handleCleanCart}>
           <CustomButton
             text={"Borrar carrito"}
@@ -21,6 +24,9 @@ const CartCheckout = ({ totalQuantity, totalAmount, handleCleanCart }) => {
           />
         </div>
       </div>
+
+      <CheckoutContainer isModalActive={isModalActive} />
+
     </div>
   );
 };

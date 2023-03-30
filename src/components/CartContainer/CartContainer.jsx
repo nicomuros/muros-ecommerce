@@ -2,12 +2,13 @@ import React, { useContext } from 'react'
 import Swal from 'sweetalert2'
 import { CartContext } from '../../context/CartContext'
 import Cart from './Cart'
-
+import { useState } from "react";
 
 
 const CartContainer = () => {
 
   const {cartList, decreaseProductQuantity, increaseProductQuantity, deleteProduct, getCartTotalAmount, cleanCart, getCartTotalQuantity} = useContext(CartContext)
+  const [isModalActive, setIsModalActive] = useState(false);
 
   const handleMinus = (id) => {
     return decreaseProductQuantity(id)
@@ -61,20 +62,28 @@ const CartContainer = () => {
     })
   }
 
- 
+  const handleConfirmOrder = () => {
+    setIsModalActive(true);
+    console.log("hola")
+    
+  }
 
-  const cartParams = {
-    cartList,
+  const cartItemProps = {
     handleMinus,
     handlePlus,
     handleDeleteProduct,
+  };
+
+  const cartCheckoutProps = {
     totalAmount,
     totalQuantity,
-    handleCleanCart
-  }
+    handleCleanCart,
+    handleConfirmOrder,
+    isModalActive
+  };
 
   return (
-    <Cart {...cartParams}/>
+    <Cart cartItemProps = {cartItemProps} cartCheckoutProps = {cartCheckoutProps} totalQuantity = {totalQuantity} cartList = {cartList}/>
   )
 }
 
