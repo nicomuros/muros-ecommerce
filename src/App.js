@@ -7,6 +7,7 @@ import CartContextProvider from "./context/CartContext";
 import CartContainer from "./components/CartContainer/CartContainer";
 import Footer from "./components/Footer/Footer";
 import Welcome from "./components/Welcome/Welcome";
+import PageNotFound from "./components/PageNotFound/PageNotFound";
 
 
 function App() {
@@ -17,12 +18,12 @@ function App() {
           <NavbarContainer />
           <Routes>
             <Route path="/" element={<Welcome />} />
-            <Route path="/menu" element={ <ItemListContainer /> }/>
-            <Route path="/menu/:categoryName" element={ <ItemListContainer /> }/>
+            <Route path="/categories" element={ <ItemListContainer /> }/>
+            <Route path="/categories/:categoryId/:categoryName" element={ <ItemListContainer /> }/>
             <Route path="/item/:id/:name" element={ <ItemDetailContainer /> }/>
             <Route path="/contactanos" element={ <ContactoContainer /> }/>
             <Route path="/cart" element={ <CartContainer /> }/>
-            <Route path="*" element={<h1> error 404: Not found </h1>} />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </CartContextProvider>
         <Footer />

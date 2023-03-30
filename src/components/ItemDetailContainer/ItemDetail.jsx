@@ -8,7 +8,7 @@ const ItemDetail = ({product, initial, onAdd, stock}) => {
       
       <Container>
         <Row>
-          {product && (
+          {product ? (
             <>
             <Col lg={6}>
               <Image src={product.img} fluid className={styles.imagen}/>
@@ -21,7 +21,13 @@ const ItemDetail = ({product, initial, onAdd, stock}) => {
               <ItemCount stock={stock} initial={initial} onAdd={onAdd}/>
             </Col>
             </>
-          )}
+          ) : <h1 style={{
+            color: "black",
+            fontSize: 30,
+            fontWeight: "bold",
+            textAlign: "center",
+            paddingTop: 50
+          }}>No se encontró el producto</h1>}
         </Row>
       </Container>
     </div>

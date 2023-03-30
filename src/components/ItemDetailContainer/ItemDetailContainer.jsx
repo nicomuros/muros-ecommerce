@@ -12,6 +12,7 @@ const ItemDetailContainer = () => {
   const { id } = useParams();
   
   const [product, setProduct] = useState();
+  const [productFinded, setProductFinded] = useState(false);
   const [areItemsCharged, setAreItemsCharged] = useState(false)
   
   useEffect(() => {
@@ -20,7 +21,10 @@ const ItemDetailContainer = () => {
     const queryById = doc(itemCollection, id);
     getDoc(queryById)
     .then(receivedProduct => {
-      setProduct({
+      
+      const productExist = receivedProduct.exists();
+      
+      productExist && setProduct({
         ...receivedProduct.data(),
         hostId: receivedProduct.id
       });

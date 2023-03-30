@@ -23,7 +23,7 @@ const NavbarDropdown = ({ categories, areCategoriesCharged, dropdownStylesForMob
           categories.map((currentCategory) => (
             <Dropdown.Item
               as={Link}
-              to={`menu/${currentCategory.category}`}
+              to={`categories/${currentCategory.id}/${currentCategory.category}`}
               key={currentCategory.id}
               style={{ textTransform: "capitalize" }}
               className={dropdownStylesForMobile.textCenter}
