@@ -7,6 +7,28 @@ const CustomNavbar = () => {
 
   const [categories, setCategories] = useState([])
   const [areCategoriesCharged, setAreCategoriesCharged] = useState(false)
+  const [dropdownStylesForMobile, setDropdownStylesForMobile] = useState([""])
+
+  // usamos un useEffect para que se ejecute una sola vez. 
+  // El event.listener está dentro de un useEffect para prevenir
+  // que se agregue a un elemento del DOM que no existe.
+  useEffect(() => {
+    // callback function to set state based on window width
+    const handleResize = () => {
+      const screenWidth = window.innerWidth;
+      setDropdownStylesForMobile(screenWidth <= 768 ? {
+        width: "w-100",
+        textCenter: "text-center"} : "");
+    };
+    handleResize();
+
+
+    // Add event listener to update state on resize
+    window.addEventListener("resize", handleResize);
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     setAreCategoriesCharged(false)
@@ -38,7 +60,8 @@ const CustomNavbar = () => {
   }
   const navbarProps = {
     categories,
-    areCategoriesCharged
+    areCategoriesCharged,
+    dropdownStylesForMobile
   }
   return (
     <NavbarComponent {...navbarProps}/>

@@ -17,12 +17,12 @@ const NavbarComponent = (navbarProps) => {
     >
       <Container className="d-flex align-items-center">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Brand className="d-md-none">
+        <Navbar.Brand className="d-md-none " style={{marginRight: 0, marginLeft: 10}}>
           <Link to="/">
             <Button variant="dark">
               <GiHamburger
                 style={{ fontSize: "2rem" }}
-                className="text-center"
+                
               />
             </Button>
           </Link>
@@ -48,9 +48,11 @@ const NavbarComponent = (navbarProps) => {
 
             <NavbarDropdown {...navbarProps}/>
             
-            <Link to="contactanos">
-              <Button variant="dark">Contacto</Button>
-            </Link>
+            <div className={navbarProps.dropdownStylesForMobile.width}>
+              <Link to="contactanos">
+                <Button variant="dark" className="w-100">Contacto</Button>
+              </Link>
+            </div>
             <Link to="cart">
               <Button variant="dark" className="d-none d-md-block">
                 <CartWidget/>

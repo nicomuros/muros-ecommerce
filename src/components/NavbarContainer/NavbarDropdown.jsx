@@ -3,19 +3,19 @@ import { Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./NavbarComponent.css";
 
-const NavbarDropdown = ({ categories, areCategoriesCharged }) => {
+const NavbarDropdown = ({ categories, areCategoriesCharged, dropdownStylesForMobile }) => {
 
   return (
-    <Dropdown>
+    <Dropdown className={dropdownStylesForMobile.width}>
       <Dropdown.Toggle
         variant="dark"
         id="dropdown-basic"
-        className="custom-dropdown-toggle"
+        className="custom-dropdown-toggle "
       >
         Menu
       </Dropdown.Toggle>
       <Dropdown.Menu variant="dark">
-        <Dropdown.Item as={Link} to="menu">
+        <Dropdown.Item as={Link} to="menu" className={dropdownStylesForMobile.textCenter}>
           Menu completo
         </Dropdown.Item>
         <Dropdown.Divider />
@@ -26,6 +26,7 @@ const NavbarDropdown = ({ categories, areCategoriesCharged }) => {
               to={`menu/${currentCategory.category}`}
               key={currentCategory.id}
               style={{ textTransform: "capitalize" }}
+              className={dropdownStylesForMobile.textCenter}
             >
               {currentCategory.category}
             </Dropdown.Item>
@@ -39,18 +40,3 @@ const NavbarDropdown = ({ categories, areCategoriesCharged }) => {
 };
 
 export default NavbarDropdown;
-
-/*
-<Link to="menu">
-              <Button variant="dark">Menu completo</Button>
-            </Link>
-            <Link to="menu/carne">
-              <Button variant="dark">Carne</Button>
-            </Link>
-            <Link to="menu/veggie">
-              <Button variant="dark">Veggie</Button>
-            </Link>
-            <Link to="menu/fritas">
-              <Button variant="dark">Papas</Button>
-            </Link>
-*/

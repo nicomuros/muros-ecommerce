@@ -44,7 +44,7 @@
   background: linear-gradient(90deg, #ffffff, #e2e2e2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
+  background-clip: text;
 
 }
 
@@ -55,4 +55,5 @@
   background: linear-gradient(90deg, #ffffff, #e2e2e2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
