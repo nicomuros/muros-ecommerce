@@ -7,12 +7,12 @@ import { AiOutlineTwitter } from 'react-icons/ai';
 
 function Footer() {
   return (
-    <footer className="bg-dark text-white py-5">
-      <Container>
+    <footer className="bg-dark text-white py-5" >
+      <Container style={{padding: "60px 0px"}}>
         <Row className="justify-content-center mb-4">
           <Col className="text-center">
             <GiHamburger size={70} />
-            <p className="mt-3 mb-0">San Rafael, Mendoza, Argentina</p>
+            <p className="mt-3 mb-20">San Rafael, Mendoza, Argentina</p>
           </Col>
         </Row>
         <Row className="justify-content-center">
