@@ -3,20 +3,38 @@ import { Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./NavbarComponent.css";
 
-const NavbarDropdown = () => {
+const NavbarDropdown = ({ categories, areCategoriesCharged }) => {
+
   return (
     <Dropdown>
-  <Dropdown.Toggle variant="dark" id="dropdown-basic" className="custom-dropdown-toggle">
-    Menu
-  </Dropdown.Toggle>
-  <Dropdown.Menu variant="dark">
-    <Dropdown.Item as={Link} to="menu">Menu completo</Dropdown.Item>
-    <Dropdown.Divider />
-    <Dropdown.Item as={Link} to="menu/carne">Carne</Dropdown.Item>
-    <Dropdown.Item as={Link} to="menu/veggie">Veggie</Dropdown.Item>
-    <Dropdown.Item as={Link} to="menu/fritas">Fritas</Dropdown.Item>
-  </Dropdown.Menu>
-</Dropdown>
+      <Dropdown.Toggle
+        variant="dark"
+        id="dropdown-basic"
+        className="custom-dropdown-toggle"
+      >
+        Menu
+      </Dropdown.Toggle>
+      <Dropdown.Menu variant="dark">
+        <Dropdown.Item as={Link} to="menu">
+          Menu completo
+        </Dropdown.Item>
+        <Dropdown.Divider />
+        {areCategoriesCharged ? (
+          categories.map((currentCategory) => (
+            <Dropdown.Item
+              as={Link}
+              to={`menu/${currentCategory.category}`}
+              key={currentCategory.id}
+              style={{ textTransform: "capitalize" }}
+            >
+              {currentCategory.category}
+            </Dropdown.Item>
+          ))
+        ) : (
+          <Dropdown.Item disabled>Loading...</Dropdown.Item>
+        )}
+      </Dropdown.Menu>
+    </Dropdown>
   );
 };
 

@@ -1,6 +1,6 @@
 import NavbarComponent from "./NavbarComponent"
 import { db } from "../../firebaseConfig";
-import {collection, getDocs, query, where} from "firebase/firestore"
+import { collection, getDocs } from "firebase/firestore"
 import { useEffect, useState } from "react";
 
 const CustomNavbar = () => {
@@ -9,28 +9,39 @@ const CustomNavbar = () => {
   const [areCategoriesCharged, setAreCategoriesCharged] = useState(false)
 
   useEffect(() => {
+    setAreCategoriesCharged(false)
     const categoriesCollection = collection(db, "categories")
     getDocs(categoriesCollection)
-      .then(res => {
-        let receivedCategories = handleCategoryData(res)
-        setCategories(receivedCategories)
+      .then(receivedCategories => {
+        const categoriesHandled = handleReceivedCategories(receivedCategories);
+        const categoriesSorted = sortCategories(categoriesHandled)
+        setCategories(categoriesSorted)
         setAreCategoriesCharged(true)
       })
   },[])
 
-  const handleCategoryData = (dataReceived) => {
+  const handleReceivedCategories = (dataReceived) => {
     return dataReceived.docs.map((hostCategory) => {
       return {
-        ...hostCategory.data(),
-        hostId: hostCategory.id
+        id: hostCategory.id,
+        ...hostCategory.data()
       }
     })
   }
 
-
-
+  const sortCategories = (categories) => {
+    return categories.sort((a,b) => {
+      if (a.position > b.position) return 1;
+      if (a.position < b.position) return -1;
+      return 0;
+    })
+  }
+  const navbarProps = {
+    categories,
+    areCategoriesCharged
+  }
   return (
-    <NavbarComponent />
+    <NavbarComponent {...navbarProps}/>
   );
 };
 

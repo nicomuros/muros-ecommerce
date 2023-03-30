@@ -7,7 +7,7 @@ import CartWidget from './CartWidget'
 import "./NavbarComponent.css";
 import NavbarDropdown from './NavbarDropdown'
 
-const NavbarComponent = () => {
+const NavbarComponent = (navbarProps) => {
   return (
     <Navbar
       bg="dark"
@@ -45,14 +45,15 @@ const NavbarComponent = () => {
                 />
               </Button>
             </Link>
-            <NavbarDropdown />
+
+            <NavbarDropdown {...navbarProps}/>
             
             <Link to="contactanos">
               <Button variant="dark">Contacto</Button>
             </Link>
             <Link to="cart">
               <Button variant="dark" className="d-none d-md-block">
-                <CartWidget />
+                <CartWidget/>
               </Button>
             </Link>
           </Nav>
