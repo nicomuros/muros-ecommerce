@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import CustomButton from "../CustomButton/CustomButton";
 import styles from "./Contacto.module.css";
-import Separador from "../Separador/Separador";
+import Separador from "../Titulador/Titulador";
 
 const Contacto = ({ handleChange, handleSubmit, errorList, isSended }) => {
   return (
@@ -24,7 +24,8 @@ const Contacto = ({ handleChange, handleSubmit, errorList, isSended }) => {
               />
               {errorList.userNameError && (
                 <p className={styles.errorMessage}>
-                  Ingrese un nombre válido, debe contener entre 4 y 15 caracteres
+                  Ingrese un nombre válido, debe contener entre 4 y 15
+                  caracteres
                 </p>
               )}
             </div>
@@ -75,9 +76,7 @@ const Contacto = ({ handleChange, handleSubmit, errorList, isSended }) => {
                 onChange={handleChange}
               />
               {errorList.userMessageError && (
-                <p className={styles.errorMessage}>
-                  Ingrese un mensaje
-                </p>
+                <p className={styles.errorMessage}>Ingrese un mensaje</p>
               )}
             </div>
 
@@ -88,16 +87,14 @@ const Contacto = ({ handleChange, handleSubmit, errorList, isSended }) => {
                 paddingReceived="0px 100px"
               />
               {isSended && (
-                <p className={styles.successMessage}>
-                  Mensaje enviado
-                </p>
+                <p className={styles.successMessage}>Mensaje enviado</p>
               )}
             </div>
           </form>
         </Col>
       </Row>
     </Container>
-  )
-}
+  );
+};
 
-export default Contacto
+export default Contacto;
