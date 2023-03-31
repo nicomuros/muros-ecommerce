@@ -5,16 +5,12 @@ import CartCheckout from "./CartCheckout";
 import CartItem from "./CartItem";
 import EmptyCart from "./EmptyCart";
 
-
-
 const Cart = ( {cartItemProps, cartCheckoutProps, cartList, totalQuantity}) => {
-  
-
-  
 
   return (
     <Container fluid className={styles.container}>
       <Row className={`d-flex justify-content-center`}>
+
         {totalQuantity > 0 ? (
           <>
             <Col lg={6} >
@@ -28,6 +24,7 @@ const Cart = ( {cartItemProps, cartCheckoutProps, cartList, totalQuantity}) => {
                 );
               })}
             </Col>
+
             <Col lg={4} >
               <CartCheckout {...cartCheckoutProps} cartList={cartList}/>
             </Col>

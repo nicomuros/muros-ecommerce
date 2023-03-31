@@ -15,7 +15,7 @@ const NavbarDropdown = ({ categories, areCategoriesCharged, dropdownStylesForMob
         Menu
       </Dropdown.Toggle>
       <Dropdown.Menu variant="dark">
-        <Dropdown.Item as={Link} to="menu" className={dropdownStylesForMobile.textCenter}>
+        <Dropdown.Item as={Link} to="categories" className={dropdownStylesForMobile.textCenter}>
           Menu completo
         </Dropdown.Item>
         <Dropdown.Divider />

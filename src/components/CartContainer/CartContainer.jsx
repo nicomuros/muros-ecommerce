@@ -19,6 +19,9 @@ const CartContainer = () => {
 
   const [isModalActive, setIsModalActive] = useState(false);
 
+  const totalAmount = getCartTotalAmount();
+  const totalQuantity = getCartTotalQuantity();
+
   const handleMinus = (id) => {
     return decreaseProductQuantity(id)
   }
@@ -35,6 +38,7 @@ const CartContainer = () => {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Borrar',
       cancelButtonText: 'Cancelar'
+
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire(
@@ -44,12 +48,8 @@ const CartContainer = () => {
         return deleteProduct(id)
       }
     })
-   
   }
 
-  const totalAmount = getCartTotalAmount();
-  
-  const totalQuantity = getCartTotalQuantity();
 
   const handleCleanCart = () => {
     Swal.fire({
@@ -60,6 +60,7 @@ const CartContainer = () => {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Borrar',
       cancelButtonText: 'Cancelar'
+      
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire(

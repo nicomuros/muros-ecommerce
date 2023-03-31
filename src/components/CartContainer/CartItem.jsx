@@ -7,6 +7,7 @@ const CartItem = ({producto, handleMinus, handlePlus, handleDeleteProduct}) => {
   return (
     <div className={styles.productContainer}>
       <div className={styles.productInfoContainer}>
+
         <div className={styles.productImgContainer}>
           <img
             src={producto.img}
@@ -14,11 +15,13 @@ const CartItem = ({producto, handleMinus, handlePlus, handleDeleteProduct}) => {
             className={styles.productImg}
           />
         </div>
+
         <div className={styles.productText}>
           <h5>{producto.name}</h5>
           <h6>$ {producto.price}</h6>
         </div>
       </div>
+
       <div className={styles.productButtons}>
         <div className={styles.productButtons}>
           <div className={styles.productCounter}>
@@ -26,17 +29,18 @@ const CartItem = ({producto, handleMinus, handlePlus, handleDeleteProduct}) => {
               className={styles.minus}
               onClick={() => {
                 handleMinus(producto.id);
-              }}
-            >
+              }}>
               <AiOutlineMinus />
             </span>
+
             <span className={styles.num}>{producto.quantity}</span>
+
             <span
               className={styles.plus}
               onClick={() => {
                 handlePlus(producto.id);
-              }}
-            >
+              }}>
+              
               <AiOutlinePlus />
             </span>
           </div>

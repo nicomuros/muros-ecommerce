@@ -1,75 +1,60 @@
-import { useContext, useState } from 'react';
-import { Button, Col, Form, Modal, Table } from 'react-bootstrap';
-import { CartContext } from '../../context/CartContext';
+import { useContext, useState } from "react";
+import { CartContext } from "../../context/CartContext";
+import CheckoutComponent from "./CheckoutComponent";
 
-const CheckoutContainer = ( {setIsModalActive} ) => {
+const CheckoutContainer = ({ setIsModalActive }) => {
+  
+  const { cartList, getCartTotalAmount } = useContext(CartContext);
+
+  const [userData, setUserData] = useState({
+    userName: "",
+    userPhone: "",
+    userEmail: "",
+  });
 
   const [showModal, setShowModal] = useState(true);
-  const handleClose = () => {setIsModalActive(false); setShowModal(false)};
 
-  const { cartList, getProductTotalPrice, getCartTotalAmount } = useContext(CartContext);
-  console.log(cartList);
+  const handleClose = () => {
+    setIsModalActive(false);
+    setShowModal(false);
+  };
+
+  const handleChange = (event) => {
+    setUserData({ ...userData, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const items = cartList.map((item) => {
+      return {
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        quantity: item.quantity,
+      };
+    });
+
+    const order = {
+      buyer: userData,
+      items: {...items},
+      total: getCartTotalAmount(),
+      date: new Date(),
+    };
+
+    console.log(order);
+  };
+
+  const checkoutParams = {
+    handleClose,
+    showModal,
+    handleChange,
+    handleSubmit
+  }
+  
   return (
-    <>
-      <Modal show={showModal} onHide={handleClose} backdrop="static" keyboard={false} className="bg-dark">
-        <Modal.Header closeButton>
-          <Modal.Title>Checkout</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form variant="dark">
-            <Form.Group className="mb-3 row" controlId="ControlInput1">
-              <Form.Label column sm="4">Nombre:</Form.Label>
-              <Col sm="8">
-                <Form.Control type="text" placeholder="Ingrese su nombre..." autoFocus/>
-              </Col>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="ControlInput2">
-              <Form.Label>Teléfono:</Form.Label>
-              <Form.Control type="text" placeholder="2604..."/>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="ControlInput3">
-              <Form.Label>Dirección:</Form.Label>
-              <Form.Control type="text" placeholder="Alfonsina Storni x9x"/>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="ControlInput4">
-              <Form.Label>Comentarios para la entrega</Form.Label>
-              <Form.Control type="text" placeholder="Alfonsina Storni x9x"/>
-            </Form.Group>
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>Producto</th>
-                  <th>Cantidad</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                {cartList.map((item) => (
-                  <tr key={item.id}>
-                    <td>{item.name}</td>
-                    <td>{item.quantity}</td>
-                    <td>${getProductTotalPrice(item.id)}</td>
-                  </tr>
-                ))}
-              </tbody>
-              <tr>
-                <td colSpan="2" className="text-end fw-bold"  style={{paddingTop: 20}}>Total:</td>
-                <td style={{paddingTop: 20}}>$ {getCartTotalAmount()}</td>
-              </tr>
-            </Table>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cancelar
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Pagar
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
+    <CheckoutComponent {...checkoutParams} />
   );
-}
+};
 
-export default CheckoutContainer
+export default CheckoutContainer;
