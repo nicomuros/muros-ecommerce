@@ -16,7 +16,7 @@ const CartCheckout = ({
     <div className={styles.ticketContainer}>
 
       <h3>Productos: {totalQuantity}</h3>
-      <h3>Envío: <em style={{fontWeight: 400, fontSize: 25}}>A determinar...</em></h3>
+      <h3>Envío: <em style={{fontWeight: 400, fontSize: 25}}>Take away...</em></h3>
       <h3>Subtotal: ${totalAmount}</h3>
 
       <div className={styles.cartButtons} style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '10px'}}>

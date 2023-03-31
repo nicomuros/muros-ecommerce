@@ -1,8 +1,8 @@
 import React from 'react'
 import { Modal } from 'react-bootstrap'
 import CheckoutFormContainer from './CheckoutFormContainer'
-
-const CheckoutComponent = ({ handleClose, showModal, handleChange, handleSubmit, userData }) => {
+import CheckoutComplete from "./CheckoutComplete"
+const CheckoutComponent = ({ handleClose, showModal, handleChange, handleSubmit, isSubmitted }) => {
   
   const checkoutParams = {
     handleClose,
@@ -18,7 +18,12 @@ const CheckoutComponent = ({ handleClose, showModal, handleChange, handleSubmit,
         </Modal.Header>
 
         <Modal.Body>
-          <CheckoutFormContainer {...checkoutParams} />
+          {
+            isSubmitted ? (
+                <CheckoutComplete />
+              ) : (
+                <CheckoutFormContainer {...checkoutParams} />
+            )}
         </Modal.Body>
       </Modal>
     </>

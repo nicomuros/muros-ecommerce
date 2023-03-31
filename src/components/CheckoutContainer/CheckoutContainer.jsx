@@ -11,9 +11,9 @@ const CheckoutContainer = ({ setIsModalActive }) => {
     userPhone: "",
     userEmail: "",
   });
-
   const [showModal, setShowModal] = useState(true);
-
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  
   const handleClose = () => {
     setIsModalActive(false);
     setShowModal(false);
@@ -43,13 +43,16 @@ const CheckoutContainer = ({ setIsModalActive }) => {
     };
 
     console.log(order);
+
+    setIsSubmitted(true);
   };
 
   const checkoutParams = {
     handleClose,
     showModal,
     handleChange,
-    handleSubmit
+    handleSubmit,
+    isSubmitted
   }
   
   return (

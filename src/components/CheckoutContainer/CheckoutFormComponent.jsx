@@ -7,7 +7,7 @@ const CheckoutForm = ({
   getProductTotalPrice,
   handleClose,
   handleSubmit,
-  handleChange
+  handleChange,
 }) => {
   return (
     <Form variant="dark" onSubmit={handleSubmit}>
@@ -18,7 +18,7 @@ const CheckoutForm = ({
         <Col sm="10">
           <Form.Control
             type="text"
-            placeholder="Ingrese su nombre..." 
+            placeholder="Ingrese su nombre..."
             autoFocus
             onChange={handleChange}
             name="userName"
@@ -30,9 +30,9 @@ const CheckoutForm = ({
           Teléfono:
         </Form.Label>
         <Col sm="10">
-          <Form.Control 
-            type="text" 
-            placeholder="2604..."  
+          <Form.Control
+            type="text"
+            placeholder="2604..."
             onChange={handleChange}
             name="userPhone"
           />
@@ -43,9 +43,9 @@ const CheckoutForm = ({
           Correo:
         </Form.Label>
         <Col sm="10">
-          <Form.Control 
-            type="email" 
-            placeholder="tucorreo@gmail.com" 
+          <Form.Control
+            type="email"
+            placeholder="tucorreo@gmail.com"
             onChange={handleChange}
             name="userEmail"
           />
@@ -70,23 +70,26 @@ const CheckoutForm = ({
             </tr>
           ))}
         </tbody>
-        <tr>
-          <td
-            colSpan="3"
-            className="text-end fw-bold"
-            style={{ paddingTop: 20 }}
-          >
-            Total:
-          </td>
-          <td style={{ paddingTop: 20 }}>$ {getCartTotalAmount()}</td>
-        </tr>
+        <tfoot>
+          <tr>
+            <td
+              colSpan="3"
+              className="text-end fw-bold"
+              style={{ paddingTop: 20 }}
+            >
+              Total:
+            </td>
+            <td style={{ paddingTop: 20 }}>$ {getCartTotalAmount()}</td>
+          </tr>
+        </tfoot>
       </Table>
-      <div style={{
-        display: "flex",
-        justifyContent: "flex-end",
-        marginTop: 20
-      
-      }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          marginTop: 20,
+        }}
+      >
         <Button variant="secondary" onClick={handleClose}>
           Cancelar
         </Button>
