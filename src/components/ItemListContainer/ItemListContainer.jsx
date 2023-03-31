@@ -27,7 +27,6 @@ const ItemListContainer = () => {
         const receivedProducts = handleProductData(res)
         const sortedProducts = sortAndTitle(receivedProducts)
         setItem(sortedProducts)
-        console.log("true")
         setAreItemsCharged(true)
       })
   },[categoryName])

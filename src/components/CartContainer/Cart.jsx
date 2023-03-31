@@ -29,7 +29,7 @@ const Cart = ( {cartItemProps, cartCheckoutProps, cartList, totalQuantity}) => {
               })}
             </Col>
             <Col lg={4} >
-              <CartCheckout {...cartCheckoutProps} />
+              <CartCheckout {...cartCheckoutProps} cartList={cartList}/>
             </Col>
           </>
         ) : (

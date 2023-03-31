@@ -3,7 +3,15 @@ import CheckoutContainer from "../CheckoutContainer/CheckoutContainer";
 import CustomButton from "../CustomButton/CustomButton";
 import styles from "./Cart.module.css";
 
-const CartCheckout = ({ totalQuantity, totalAmount, handleCleanCart, handleConfirmOrder, isModalActive }) => {
+const CartCheckout = ({ 
+  totalQuantity, 
+  totalAmount, 
+  handleCleanCart, 
+  handleConfirmOrder, 
+  isModalActive,
+  setIsModalActive
+}) => {
+  
   return (
     <div className={styles.ticketContainer}>
       <h3>Productos: {totalQuantity}</h3>
@@ -25,7 +33,9 @@ const CartCheckout = ({ totalQuantity, totalAmount, handleCleanCart, handleConfi
         </div>
       </div>
 
-      <CheckoutContainer isModalActive={isModalActive} />
+      {
+        isModalActive && <CheckoutContainer setIsModalActive={setIsModalActive}/>
+      }
 
     </div>
   );

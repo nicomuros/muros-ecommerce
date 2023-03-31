@@ -74,6 +74,12 @@ const CartContextProvider = ( {children} ) => { //este es el componente que prov
     setCartList([])
   }
 
+  const getProductTotalPrice = (id) => {
+    const product = cartList.find((producto) => producto.id === id);
+    return product.price * product.quantity
+  }
+
+
   const cartContextList = {
     cartList,
     setCartList,
@@ -84,7 +90,8 @@ const CartContextProvider = ( {children} ) => { //este es el componente que prov
     getCartTotalAmount,
     cleanCart,
     getCartTotalQuantity,
-    getProductQuantity
+    getProductQuantity,
+    getProductTotalPrice
   }
 
   //value va a manejar todo lo que quiero proveer al contexto

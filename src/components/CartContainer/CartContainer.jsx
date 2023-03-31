@@ -7,7 +7,16 @@ import { useState } from "react";
 
 const CartContainer = () => {
 
-  const {cartList, decreaseProductQuantity, increaseProductQuantity, deleteProduct, getCartTotalAmount, cleanCart, getCartTotalQuantity} = useContext(CartContext)
+  const {
+    cartList,
+    decreaseProductQuantity,
+    increaseProductQuantity,
+    deleteProduct,
+    getCartTotalAmount,
+    cleanCart,
+    getCartTotalQuantity
+  } = useContext(CartContext)
+
   const [isModalActive, setIsModalActive] = useState(false);
 
   const handleMinus = (id) => {
@@ -64,8 +73,6 @@ const CartContainer = () => {
 
   const handleConfirmOrder = () => {
     setIsModalActive(true);
-    console.log("hola")
-    
   }
 
   const cartItemProps = {
@@ -79,7 +86,8 @@ const CartContainer = () => {
     totalQuantity,
     handleCleanCart,
     handleConfirmOrder,
-    isModalActive
+    isModalActive,
+    setIsModalActive
   };
 
   return (
