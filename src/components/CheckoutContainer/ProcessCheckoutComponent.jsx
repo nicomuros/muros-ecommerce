@@ -27,34 +27,37 @@ const ProcessCheckoutComponent = ({ isOrderBeingSent, orderInHost }) => {
 
           {orderInHost && (
             <>
-            <p className="mb-0 text-center">
-              <strong>Detalles</strong>
-            </p>
-            <hr />
-            <p style={{paddingTop: 10}}>
-              <strong>Nombre:</strong> {orderInHost.buyer.userName}
-            </p>
-            <p>
-              <strong>Teléfono:</strong> {orderInHost.buyer.userPhone}
-            </p>
-            <p>
-              <strong>Correo:</strong> {orderInHost.buyer.userEmail}
-            </p>
-            <p>
-              <strong>Productos:</strong>
-            </p>
-            <ul>
-              {orderInHost.items.map((product) => (
-                <li key={uuidv4()}>
-                  {product.name} - ${product.price} - {product.quantity} unidades
-                </li>
-              ))}
-            </ul>
-            <p>
-              <strong>Total:</strong> ${orderInHost.total}
-            </p>
-          </>
-              )}
+              <p>
+                <strong>ID de la orden:</strong> {orderInHost.orderId}
+              </p>
+              <p className="mb-0 text-center">
+                <strong>Detalles</strong>
+              </p>
+              <hr />
+              <p style={{paddingTop: 10}}>
+                <strong>Nombre:</strong> {orderInHost.buyer.userName}
+              </p>
+              <p>
+                <strong>Teléfono:</strong> {orderInHost.buyer.userPhone}
+              </p>
+              <p>
+                <strong>Correo:</strong> {orderInHost.buyer.userEmail}
+              </p>
+              <p>
+                <strong>Productos:</strong>
+              </p>
+              <ul>
+                {orderInHost.items.map((product) => (
+                  <li key={uuidv4()}>
+                    {product.name} - ${product.price} - {product.quantity} unidades
+                  </li>
+                ))}
+              </ul>
+              <p>
+                <strong>Total:</strong> ${orderInHost.total}
+              </p>
+            </>
+          )}
         </div>
       </div>
     )

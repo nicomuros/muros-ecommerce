@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState } from 'react'
 import ProcessCheckoutComponent from './ProcessCheckoutComponent'
-import { addDoc, collection, updateDoc, doc, getDoc } from "firebase/firestore";
+import { addDoc, collection, doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
 
 const ProcessCheckoutContainer = ({checkoutData}) => {
@@ -26,7 +26,9 @@ const ProcessCheckoutContainer = ({checkoutData}) => {
         const queryById = doc(collection(db, "orders"), orderId);
         getDoc(queryById)
           .then((receivedProduct) => {
-            setOrderInHost(receivedProduct.data());
+            const productData = receivedProduct.data();
+            setOrderInHost({...productData,
+            orderId: receivedProduct.id});
             setAreOrderDataReceived(true);
           });
       }
