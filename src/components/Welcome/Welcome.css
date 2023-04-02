@@ -7,26 +7,26 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.431);
 }
-
-.bg-img1 {
-  background-image: url("https://res.cloudinary.com/dna9rrdkj/image/upload/v1677453124/Rock%20n%27%20burger/welcome-carrusel/img1_aiwiel.jpg");
+.bg-img1,
+.bg-img2,
+.bg-img3 {
   background-size: cover;
   background-position: center;
-  height: calc(100vh - 100px);
+  height: 100vh;
+}
+.bg-img1 {
+  background-image: url("https://res.cloudinary.com/dna9rrdkj/image/upload/v1680403619/Rock%20n%27%20burger/welcome-carrusel/hamburguesas-caseras-o73c0mp5kk80t0usdasop0xwtktpjrrbicxpg5dawg_srkznc.jpg");
+  
 }
 .bg-img2 {
-  background-image: url("https://res.cloudinary.com/dna9rrdkj/image/upload/v1677453124/Rock%20n%27%20burger/welcome-carrusel/img2_qrj0nx.jpg");
-  background-size: cover;
-  background-position: center;
-  height: calc(100vh - 100px);
+  background-image: url("https://res.cloudinary.com/dna9rrdkj/image/upload/v1680403638/Rock%20n%27%20burger/welcome-carrusel/7283c547-7b6a-473b-a544-3cb6933c5860_dmuugb.jpg");
+
 }
 .bg-img3 {
-  background-image: url("https://res.cloudinary.com/dna9rrdkj/image/upload/v1677453124/Rock%20n%27%20burger/welcome-carrusel/img3_wo545c.jpg");
-  background-size: cover;
-  background-position: center;
-  height: calc(100vh - 100px);
+  background-image: url("https://res.cloudinary.com/dna9rrdkj/image/upload/v1680403653/Rock%20n%27%20burger/welcome-carrusel/6408a6754d508_dealpic-marriott5_l6u5tb.jpg");
+
 }
 
 .carousel-caption {
@@ -44,7 +44,7 @@
   background: linear-gradient(90deg, #ffffff, #e2e2e2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
+  background-clip: text;
 
 }
 
@@ -55,4 +55,5 @@
   background: linear-gradient(90deg, #ffffff, #e2e2e2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

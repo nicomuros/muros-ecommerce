@@ -1,4 +1,4 @@
-export function Categorizador(items = []) {
+export function sortAndTitle (items = []) {
   const itemsOrdenados = sortItems(items)
   const itemsTitulados = addTitles(itemsOrdenados)
   return itemsTitulados

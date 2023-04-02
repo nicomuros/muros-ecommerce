@@ -1,36 +1,16 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
 import styles from "./Cart.module.css";
-import CartCheckout from "./CartCheckout";
+import CartSummary from "./CartSummary";
 import CartItem from "./CartItem";
 import EmptyCart from "./EmptyCart";
 
-
-
-const Cart = ({
-  cartList,
-  handleMinus,
-  handlePlus,
-  handleCleanCart,
-  handleDeleteProduct,
-  totalAmount,
-  totalQuantity,
-}) => {
-  const cartItemProps = {
-    handleMinus,
-    handlePlus,
-    handleDeleteProduct,
-  };
-
-  const cartCheckoutProps = {
-    totalAmount,
-    totalQuantity,
-    handleCleanCart,
-  };
+const CartComponent = ( {cartItemProps, cartCheckoutProps, cartList, totalQuantity}) => {
 
   return (
     <Container fluid className={styles.container}>
       <Row className={`d-flex justify-content-center`}>
+
         {totalQuantity > 0 ? (
           <>
             <Col lg={6} >
@@ -44,8 +24,9 @@ const Cart = ({
                 );
               })}
             </Col>
+
             <Col lg={4} >
-              <CartCheckout {...cartCheckoutProps} />
+              <CartSummary {...cartCheckoutProps} cartList={cartList}/>
             </Col>
           </>
         ) : (
@@ -58,4 +39,4 @@ const Cart = ({
   );
 };
 
-export default Cart;
+export default CartComponent;

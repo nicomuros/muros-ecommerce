@@ -1,13 +1,26 @@
 import React, { useContext } from 'react'
 import Swal from 'sweetalert2'
 import { CartContext } from '../../context/CartContext'
-import Cart from './Cart'
-
+import CartComponent from './CartComponent'
+import { useState } from "react";
 
 
 const CartContainer = () => {
 
-  const {cartList, decreaseProductQuantity, increaseProductQuantity, deleteProduct, getCartTotalAmount, cleanCart, getCartTotalQuantity} = useContext(CartContext)
+  const {
+    cartList,
+    decreaseProductQuantity,
+    increaseProductQuantity,
+    deleteProduct,
+    getCartTotalAmount,
+    cleanCart,
+    getCartTotalQuantity
+  } = useContext(CartContext)
+
+  const [isModalActive, setIsModalActive] = useState(false);
+
+  const totalAmount = getCartTotalAmount();
+  const totalQuantity = getCartTotalQuantity();
 
   const handleMinus = (id) => {
     return decreaseProductQuantity(id)
@@ -25,6 +38,7 @@ const CartContainer = () => {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Borrar',
       cancelButtonText: 'Cancelar'
+
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire(
@@ -34,12 +48,8 @@ const CartContainer = () => {
         return deleteProduct(id)
       }
     })
-   
   }
 
-  const totalAmount = getCartTotalAmount();
-  
-  const totalQuantity = getCartTotalQuantity();
 
   const handleCleanCart = () => {
     Swal.fire({
@@ -50,6 +60,7 @@ const CartContainer = () => {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Borrar',
       cancelButtonText: 'Cancelar'
+      
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire(
@@ -61,20 +72,27 @@ const CartContainer = () => {
     })
   }
 
- 
+  const handleConfirmOrder = () => {
+    setIsModalActive(true);
+  }
 
-  const cartParams = {
-    cartList,
+  const cartItemProps = {
     handleMinus,
     handlePlus,
     handleDeleteProduct,
+  };
+
+  const cartCheckoutProps = {
     totalAmount,
     totalQuantity,
-    handleCleanCart
-  }
+    handleCleanCart,
+    handleConfirmOrder,
+    isModalActive,
+    setIsModalActive
+  };
 
   return (
-    <Cart {...cartParams}/>
+    <CartComponent cartItemProps = {cartItemProps} cartCheckoutProps = {cartCheckoutProps} totalQuantity = {totalQuantity} cartList = {cartList}/>
   )
 }
 
