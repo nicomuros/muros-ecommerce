@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 const ProcessCheckoutComponent = ({ isOrderBeingSent, orderInHost }) => {
   return (
     isOrderBeingSent ? (
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center align-items-center" style={{height: 400}}>
         <div className="spinner-border text-primary" role="status">
           <span className="visually-hidden">Loading...</span>
         </div>
