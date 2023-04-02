@@ -27,14 +27,14 @@ const ProcessCheckoutComponent = ({ isOrderBeingSent, orderInHost }) => {
 
           {orderInHost && (
             <>
-              <p>
-                <strong>ID de la orden:</strong> {orderInHost.orderId}
-              </p>
               <p className="mb-0 text-center">
                 <strong>Detalles</strong>
               </p>
               <hr />
-              <p style={{paddingTop: 10}}>
+              <p>
+                <strong>ID de la orden:</strong> {orderInHost.orderId}
+              </p>
+              <p>
                 <strong>Nombre:</strong> {orderInHost.buyer.userName}
               </p>
               <p>
