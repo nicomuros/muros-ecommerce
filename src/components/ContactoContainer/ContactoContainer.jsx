@@ -1,58 +1,42 @@
-import React, { useState } from "react";
-import Contacto from "./Contacto"
+import ContactoComponent from "./ContactoComponent"
+import { useFormik } from "formik";
+import * as Yup from 'yup';
+
+
 const ContactoContainer = () => {
-
-  const [userData, setUserData] = useState({
-    userName: "",
-    userEmail: "",
-    userPhone: "",
-    userMessage: "",
+  const formik = useFormik({
+    initialValues: {
+      userName: "",
+      userLastName: "",
+      userPhone: "",
+      userEmail: "",
+      userConfirmEmail: "",
+      userMessage: "",
+    },
+    validationSchema: Yup.object({
+      userName: Yup.string()
+      .min(3, 'Debe tener más de 3 caracteres')
+      .max(15, 'Debe tener menos de 15 caracteres')
+      .required('Campo obligatorio'),
+      userLastName: Yup.string()
+      .min(3, 'Debe tener más de 3 caracteres')
+      .max(15, 'Debe tener menos de 15 caracteres')
+      .required('Campo obligatorio'),
+      userPhone: Yup.string()
+      .matches(/^(?!(?:11|15)\d{8})(?:\d{2})?\d{8}$/, 'Debe ingresar un número de teléfono válido en Argentina (sin 0 ni 15)'),
+      userEmail: Yup.string().email('Debe ingresar un email válido').required('Campo obligatorio'),
+      userConfirmEmail: Yup.string().email('Debe ingresar un email válido').required('Campo obligatorio').oneOf([Yup.ref('userEmail'), null], 'Los emails no coinciden'),
+      userMessage: Yup.string()
+        .min(3, 'Debe tener más de 3 caracteres')
+        .max(200, 'Debe tener menos de 200 caracteres')
+        .required('Campo obligatorio'),
+    }),
+    onSubmit: (values) => {
+      console.log(values);
+    },
   });
-
-  //control de renderización del DOM
-  const [errorList, setErrorList] = useState({
-    userNameError: false,
-    userEmailError: false,
-    userPhoneError: false,
-    userMessageError: false,
-  });
-
-  //control de mensaje enviado
-  const [isSended, setIsSended] = useState(false);
-
-  const handleChange = (event) => {
-    setUserData({ ...userData, [event.target.name]: event.target.value });
-    setErrorList({ ...errorList, [`${event.target.name}Error`]: false }); //limpio mensaje de error
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    let error = false;
-    if (userData.userName.length < 4 || userData.userName.length > 15) {
-      setErrorList((prevState) => ({ ...prevState, userNameError: true }));
-      error = true;
-    }
-    if (!userData.userEmail.includes("@gmail.com")) {
-      setErrorList((prevState) => ({ ...prevState, userEmailError: true }));
-      error = true;
-    }
-    if (userData.userPhone.length !== 10) {
-      console.log("error")
-      setErrorList((prevState) => ({ ...prevState, userPhoneError: true }));
-      error = true;
-    }
-    if (!userData.userMessage || userData.userMessage.trim() === "") {
-      setErrorList((prevState) => ({ ...prevState, userMessageError: true }));
-      error = true;
-    }
-    if (!error) {
-      setIsSended(true);
-    }
-  };
-
-  
   return (
-    <Contacto handleChange={handleChange} handleSubmit={handleSubmit} isSended={isSended} errorList={errorList} />
+    <ContactoComponent formik={formik} />
   );
 };
 
