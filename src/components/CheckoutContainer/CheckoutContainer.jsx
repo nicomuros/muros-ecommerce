@@ -9,12 +9,13 @@ const CheckoutContainer = ({ setIsModalActive }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [areDataReady, setAreDataReady] = useState(false);
 
+  //Este useEffect es para asegurarnos que el state de checkoutData se ha actualizado
+  //con los datos del formulario antes de enviarlos a firebase (al ser un proceso asincrono)
   useEffect(() => {
     if (isSubmitted) {
       setAreDataReady(true);
     }
   },[isSubmitted]);
-  
 
   const  getItemsProps = () => {
     return cartList.map((item) => {
@@ -45,7 +46,6 @@ const CheckoutContainer = ({ setIsModalActive }) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     const buyerDataUpdated = { ...checkoutData.buyer, [name]: value };
-
     setCheckoutData({...checkoutData, buyer: {...buyerDataUpdated}});
   };
 
@@ -54,7 +54,6 @@ const CheckoutContainer = ({ setIsModalActive }) => {
     const orderWithDate = { ...checkoutData, date: new Date() };
 
     setCheckoutData(orderWithDate);
-
     setIsSubmitted(true);
   };
   

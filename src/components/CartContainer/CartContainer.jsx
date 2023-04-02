@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import Swal from 'sweetalert2'
 import { CartContext } from '../../context/CartContext'
-import Cart from './Cart'
+import CartComponent from './CartComponent'
 import { useState } from "react";
 
 
@@ -92,7 +92,7 @@ const CartContainer = () => {
   };
 
   return (
-    <Cart cartItemProps = {cartItemProps} cartCheckoutProps = {cartCheckoutProps} totalQuantity = {totalQuantity} cartList = {cartList}/>
+    <CartComponent cartItemProps = {cartItemProps} cartCheckoutProps = {cartCheckoutProps} totalQuantity = {totalQuantity} cartList = {cartList}/>
   )
 }
 

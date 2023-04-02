@@ -1,11 +1,11 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
 import styles from "./Cart.module.css";
-import CartCheckout from "./CartCheckout";
+import CartSummary from "./CartSummary";
 import CartItem from "./CartItem";
 import EmptyCart from "./EmptyCart";
 
-const Cart = ( {cartItemProps, cartCheckoutProps, cartList, totalQuantity}) => {
+const CartComponent = ( {cartItemProps, cartCheckoutProps, cartList, totalQuantity}) => {
 
   return (
     <Container fluid className={styles.container}>
@@ -26,7 +26,7 @@ const Cart = ( {cartItemProps, cartCheckoutProps, cartList, totalQuantity}) => {
             </Col>
 
             <Col lg={4} >
-              <CartCheckout {...cartCheckoutProps} cartList={cartList}/>
+              <CartSummary {...cartCheckoutProps} cartList={cartList}/>
             </Col>
           </>
         ) : (
@@ -39,4 +39,4 @@ const Cart = ( {cartItemProps, cartCheckoutProps, cartList, totalQuantity}) => {
   );
 };
 
-export default Cart;
+export default CartComponent;

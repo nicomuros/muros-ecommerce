@@ -3,7 +3,7 @@ import CheckoutContainer from "../CheckoutContainer/CheckoutContainer";
 import CustomButton from "../CustomButton/CustomButton";
 import styles from "./Cart.module.css";
 
-const CartCheckout = ({ 
+const CartSummary = ({ 
   totalQuantity, 
   totalAmount, 
   handleCleanCart, 
@@ -43,4 +43,4 @@ const CartCheckout = ({
   );
 };
 
-export default CartCheckout;
+export default CartSummary;
