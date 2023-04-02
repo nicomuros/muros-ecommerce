@@ -1,56 +1,94 @@
 import React from "react";
-import { Button, Col, Form, Table } from "react-bootstrap";
+import { Button, Col, Form, Row, Table } from "react-bootstrap";
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+
 
 const CheckoutForm = ({
   cartList,
   getCartTotalAmount,
   getProductTotalPrice,
-  handleClose,
-  handleSubmit,
-  handleChange,
+  formik,
+  handleClose
 }) => {
+
   return (
-    <Form variant="dark" onSubmit={handleSubmit}>
-      <Form.Group className="mb-3 row" controlId="ControlInput1">
-        <Form.Label column sm="2">
-          Nombre:
-        </Form.Label>
-        <Col sm="10">
-          <Form.Control
-            type="text"
-            placeholder="Ingrese su nombre..."
-            autoFocus
-            onChange={handleChange}
-            name="userName"
-          />
+    <Form variant="dark" onSubmit={formik.handleSubmit}>
+      <Row>
+        <Col sm={6}>
+        <FloatingLabel controlId="floatingInput" label="Nombre" className="mb-3" >
+            <Form.Control 
+              type="text" 
+              placeholder="Nombre" 
+              name="userName" 
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.userName}
+              isInvalid={formik.touched.userName && formik.errors.userName}
+            />
+            <Form.Control.Feedback type="invalid">
+              {formik.errors.userName}
+            </Form.Control.Feedback>
+          </FloatingLabel>
         </Col>
-      </Form.Group>
-      <Form.Group className="mb-3 row" controlId="ControlInput2">
-        <Form.Label column sm="2">
-          Teléfono:
-        </Form.Label>
-        <Col sm="10">
-          <Form.Control
-            type="text"
-            placeholder="2604..."
-            onChange={handleChange}
-            name="userPhone"
-          />
+        <Col sm={6}>
+          <FloatingLabel controlId="floatingInput" label="Apellido" className="mb-3" >
+            <Form.Control 
+              type="text"
+              placeholder="Apellido" 
+              name="userLastName" 
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.userLastName}
+              isInvalid={formik.touched.userLastName && formik.errors.userLastName}
+            />
+            <Form.Control.Feedback type="invalid">
+              {formik.errors.userLastName}
+            </Form.Control.Feedback>
+          </FloatingLabel>
         </Col>
-      </Form.Group>
-      <Form.Group className="mb-3 row" controlId="ControlInput3">
-        <Form.Label column sm="2">
-          Correo:
-        </Form.Label>
-        <Col sm="10">
-          <Form.Control
-            type="email"
-            placeholder="tucorreo@gmail.com"
-            onChange={handleChange}
-            name="userEmail"
-          />
-        </Col>
-      </Form.Group>
+      </Row>
+      <FloatingLabel controlId="floatingInput" label="Teléfono" className="mb-3" >
+        <Form.Control 
+          type="text" 
+          placeholder="Teléfono" 
+          name="userPhone" 
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.userPhone}
+          isInvalid={formik.touched.userPhone && formik.errors.userPhone}
+        />
+        <Form.Control.Feedback type="invalid">
+          {formik.errors.userPhone}
+        </Form.Control.Feedback>
+      </FloatingLabel>
+      <FloatingLabel controlId="floatingInput" label="Email" className="mb-3" >
+        <Form.Control 
+          type="text" 
+          placeholder="Email" 
+          name="userEmail" 
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.userEmail}
+          isInvalid={formik.touched.userEmail && formik.errors.userEmail}
+        />
+        <Form.Control.Feedback type="invalid">
+          {formik.errors.userEmail}
+        </Form.Control.Feedback>
+      </FloatingLabel>
+      <FloatingLabel controlId="floatingInput" label="Confirmar Email" className="mb-3" >
+        <Form.Control 
+          type="text" 
+          placeholder="Confirmar Email"
+          name="userConfirmEmail" 
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.userConfirmEmail}
+          isInvalid={formik.touched.userConfirmEmail && formik.errors.userConfirmEmail}
+        />
+        <Form.Control.Feedback type="invalid">
+          {formik.errors.userConfirmEmail}
+        </Form.Control.Feedback>
+      </FloatingLabel>
       <Table striped bordered hover>
         <thead>
           <tr>

@@ -38,6 +38,9 @@ const ProcessCheckoutComponent = ({ isOrderBeingSent, orderInHost }) => {
                 <strong>Nombre:</strong> {orderInHost.buyer.userName}
               </p>
               <p>
+                <strong>Apellido:</strong> {orderInHost.buyer.userLastName}
+              </p>
+              <p>
                 <strong>Teléfono:</strong> {orderInHost.buyer.userPhone}
               </p>
               <p>

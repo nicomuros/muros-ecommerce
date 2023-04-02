@@ -29,11 +29,6 @@ const CheckoutContainer = ({ setIsModalActive }) => {
   };
 
   const [checkoutData, setCheckoutData] = useState({
-    buyer: {
-      userName: "",
-      userPhone: "",
-      userEmail: ""
-    },
     items: getItemsProps(),
     total: getCartTotalAmount()
   });
@@ -42,28 +37,14 @@ const CheckoutContainer = ({ setIsModalActive }) => {
     setIsModalActive(false);
     setShowModal(false);
   };
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    const buyerDataUpdated = { ...checkoutData.buyer, [name]: value };
-    setCheckoutData({...checkoutData, buyer: {...buyerDataUpdated}});
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const orderWithDate = { ...checkoutData, date: new Date() };
-
-    setCheckoutData(orderWithDate);
-    setIsSubmitted(true);
-  };
-  
+ 
   const checkoutParams = {
     handleClose,
     showModal,
-    handleChange,
-    handleSubmit,
     areDataReady,
-    checkoutData
+    checkoutData,
+    setCheckoutData,
+    setIsSubmitted
   }
   
   return (

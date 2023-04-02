@@ -2,12 +2,13 @@ import React from 'react'
 import { Modal } from 'react-bootstrap'
 import CheckoutFormContainer from './CheckoutFormContainer'
 import ProcessCheckoutContainer from "./ProcessCheckoutContainer"
-const CheckoutComponent = ({ handleClose, showModal, handleChange, handleSubmit, areDataReady, checkoutData }) => {
+const CheckoutComponent = ({ handleClose, showModal, areDataReady, checkoutData, setCheckoutData, setIsSubmitted }) => {
   
   const checkoutFormParams = {
     handleClose,
-    handleSubmit,
-    handleChange
+    setCheckoutData,
+    setIsSubmitted,
+    checkoutData
   }
   
   return (
