@@ -1,58 +1,70 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import CheckoutComponent from "./CheckoutComponent";
 
 const CheckoutContainer = ({ setIsModalActive }) => {
   
-  const { cartList, getCartTotalAmount } = useContext(CartContext);
-
-  const [userData, setUserData] = useState({
-    userName: "",
-    userPhone: "",
-    userEmail: "",
-  });
+  const {cartList, getCartTotalAmount } = useContext(CartContext);
   const [showModal, setShowModal] = useState(true);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [areDataReady, setAreDataReady] = useState(false);
+
+  useEffect(() => {
+    if (isSubmitted) {
+      setAreDataReady(true);
+    }
+  },[isSubmitted]);
   
+
+  const  getItemsProps = () => {
+    return cartList.map((item) => {
+      return {
+        hostId: item.hostId,
+        name: item.name,
+        price: item.price,
+        quantity: item.quantity,
+      };
+    });
+  };
+
+  const [checkoutData, setCheckoutData] = useState({
+    buyer: {
+      userName: "",
+      userPhone: "",
+      userEmail: ""
+    },
+    items: getItemsProps(),
+    total: getCartTotalAmount()
+  });
+
   const handleClose = () => {
     setIsModalActive(false);
     setShowModal(false);
   };
 
   const handleChange = (event) => {
-    setUserData({ ...userData, [event.target.name]: event.target.value });
+    const { name, value } = event.target;
+    const buyerDataUpdated = { ...checkoutData.buyer, [name]: value };
+
+    setCheckoutData({...checkoutData, buyer: {...buyerDataUpdated}});
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const orderWithDate = { ...checkoutData, date: new Date() };
 
-    const items = cartList.map((item) => {
-      return {
-        id: item.id,
-        name: item.name,
-        price: item.price,
-        quantity: item.quantity,
-      };
-    });
-
-    const order = {
-      buyer: userData,
-      items: {...items},
-      total: getCartTotalAmount(),
-      date: new Date(),
-    };
-
-    console.log(order);
+    setCheckoutData(orderWithDate);
 
     setIsSubmitted(true);
   };
-
+  
   const checkoutParams = {
     handleClose,
     showModal,
     handleChange,
     handleSubmit,
-    isSubmitted
+    areDataReady,
+    checkoutData
   }
   
   return (
