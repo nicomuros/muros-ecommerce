@@ -4,7 +4,7 @@ import CheckoutComponent from "./CheckoutComponent";
 
 const CheckoutContainer = ({ setIsModalActive }) => {
   
-  const {cartList, getCartTotalAmount } = useContext(CartContext);
+  const {cartList, getCartTotalAmount, cleanCart } = useContext(CartContext);
   const [showModal, setShowModal] = useState(true);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [areDataReady, setAreDataReady] = useState(false);
@@ -14,6 +14,7 @@ const CheckoutContainer = ({ setIsModalActive }) => {
   useEffect(() => {
     if (isSubmitted) {
       setAreDataReady(true);
+      cleanCart();
     }
   },[isSubmitted]);
 
