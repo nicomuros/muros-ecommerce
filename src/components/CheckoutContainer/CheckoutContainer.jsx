@@ -14,7 +14,6 @@ const CheckoutContainer = ({ setIsModalActive }) => {
   useEffect(() => {
     if (isSubmitted) {
       setAreDataReady(true);
-      cleanCart();
     }
   },[isSubmitted]);
 
@@ -37,6 +36,9 @@ const CheckoutContainer = ({ setIsModalActive }) => {
   const handleClose = () => {
     setIsModalActive(false);
     setShowModal(false);
+    if (isSubmitted){
+      cleanCart();
+    }
   };
  
   const checkoutParams = {
