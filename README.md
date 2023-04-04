@@ -1,70 +1,61 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Rock'n Burger E-Commerce
 
-## Available Scripts
+Este proyecto de E-commerce con React fue creado con el objetivo de presentarlo como trabajo final para la certificación de "React" en "CoderHouse".
+Puedes ver el proyecto desplegado en el siguiente link:
+[Rock'n Burger](https://muros-ecommerce.vercel.app)
 
-In the project directory, you can run:
+![Funcionamiento de la página](https://github.com/nicomuros/muros-ecommerce/blob/master/Gif%20presentacion%20final.gif)
 
-### `npm start`
+## Descripción:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Este proyecto de React permite a los usuarios acceder a una tienda virtual en la que podrán realizar compras de manera fácil y segura. Para su desarrollo se utilizaron tecnologías como react-router-dom, react-bootstrap, firebase, formik, yup, sweetalert2, react-spinners y react-icons.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+El proyecto cuenta con tres colecciones en Firebase: "categories", "orders" y "products", y en el futuro se plantea la posibilidad de implementar un sistema de administración que permita la carga, modificación y eliminación de productos y/o categorías. Además, se espera añadir la gestión de usuarios con diferentes roles: cliente (para almacenar sus datos de envío y el historial de compras) y administrador (para la gestión de productos y pedidos). Para asegurar las keys, se trabajó con variables de entorno.
 
-### `npm test`
+## Tecnologías
+* **React**: Biblioteca para el desarrollo de interfaces de usuario.
+* **React-router-dom**: Enrutador para aplicaciones React.
+* **React-bootstrap**: Framework CSS para el diseño y desarrollo de sitios  web receptivos y móviles.
+* **Firebase**: Plataforma de desarrollo de aplicaciones móviles y web.
+* **Formik**: Biblioteca para la gestión de formularios en React.
+* **Yup**: Biblioteca para la validación de esquemas.
+* **Sweetalert2**: Biblioteca para la creación de diálogos modales personalizados.
+* **React-spinners**: Biblioteca para agregar animaciones de carga a una aplicación React.
+* **React-icons**: Biblioteca de iconos populares en React.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Instalación
+**1. Clona el repositorio:**
 
-### `npm run build`
+`git clone https://github.com/tu_usuario/tu_proyecto.git`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**2. Ingresa al directorio del proyecto:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`cd tu_proyecto`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**3. Instala las dependencias del proyecto:**
 
-### `npm run eject`
+`npm install`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**4. Crea una cuenta en Firebase y configura las credenciales en el archivo .env:**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`REACT_APP_API_KEY`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+`REACT_APP_AUTH_DOMAIN`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+`REACT_APP_PROJECT_ID`
 
-## Learn More
+`REACT_APP_STORAGE_BUCKET`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`REACT_APP_MESSAGING_SENDER_ID`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`REACT_APP_APP_ID`
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**5. Ejecuta el proyecto:**
 
-### Analyzing the Bundle Size
+`npm start`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**6. Abre la aplicación en tu navegador:**
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`http://localhost:3000`
