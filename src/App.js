@@ -12,6 +12,10 @@ function App() {
   return (
     <>
       <BrowserRouter>
+
+
+
+      
         <CartContextProvider> {/* envuelve todo aquello que va a tener contexto*/}
           <CustomNavbar />
 
