@@ -7,16 +7,13 @@ import CartContextProvider from "./context/CartContext";
 import CartContainer from "./components/CartContainer/CartContainer";
 import Footer from "./components/Footer/Footer";
 import Welcome from "./components/Welcome/Welcome";
-
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 function App() {
   return (
     <>
       <BrowserRouter>
-
-
-
-      
         <CartContextProvider> {/* envuelve todo aquello que va a tener contexto*/}
+          <ScrollToTop />
           <CustomNavbar />
 
           <Routes>
