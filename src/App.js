@@ -7,15 +7,15 @@ import CartContextProvider from "./context/CartContext";
 import CartContainer from "./components/CartContainer/CartContainer";
 import Footer from "./components/Footer/Footer";
 import Welcome from "./components/Welcome/Welcome";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
-
-
 function App() {
   return (
     <>
       <BrowserRouter>
         <CartContextProvider> {/* envuelve todo aquello que va a tener contexto*/}
           <NavbarContainer />
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Welcome />} />
             <Route path="/categories" element={ <ItemListContainer /> }/>
